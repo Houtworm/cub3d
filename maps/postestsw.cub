@@ -1,0 +1,15 @@
+C 0,100,255
+F 100,100,100
+
+NO ./assets/wall/bluestone.png
+EA ./assets/wall/colorstone.png
+SO ./assets/wall/redbrick.png
+WE ./assets/wall/wood.png
+
+1111111
+1     1
+1     1
+1     1
+1     1
+1N    1
+1111111

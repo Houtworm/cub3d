@@ -1,0 +1,5 @@
+==2830917== Memcheck, a memory error detector
+==2830917== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==2830917== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==2830917== Command: ./tests/tmp/binary
+==2830917== 

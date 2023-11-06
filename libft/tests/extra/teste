@@ -1,0 +1,144 @@
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   test.c                                          |o_o || |                */
+/*                                                     +:+                    */
+/*   By: djonker <djonker@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/11/14 21:06:17 by djonker       #+#    #+#                 */
+/*   Updated: 2023/02/18 16:09:15 by houtworm     \___)=(___/                 */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../libft.h"
+#include <string.h>
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+
+int		main(void)
+{
+	testbitswap;
+	testlincpy;
+	testlinlcpy;
+	testlinlen;
+	testintlen;
+	testluilen;
+	testflolen;
+	testarrlen;
+	testdeclen;
+	testwrdlen;
+	testwrdlens;
+	testcntwrd;
+	testcntwrds;
+	testmalstr;
+	testmalstrs;
+	testfrenarr;
+	testfrearr;
+	testrevstr;
+	teststrupp;
+	teststrlow;
+	testusuppc;
+	testislowc;
+	testisneg;
+	testisxdigit;
+	testisodigit;
+	testpower;
+	testsqrt;
+	testfactor;
+	testfnprim;
+	testisprim;
+	testputznbr_fd;
+	testputflo_fd;
+	testputzflo_fd;
+	testftoi;
+	testiftof;
+	testltoa;
+	testutoa;
+	testftoa;
+	testftoe;
+	testatol;
+	testatou;
+	testatof;
+	testatodec;
+	testitoa;
+	testitob;
+	testitoba;
+	testbtoi;
+	testdtoh;
+	testhtod;
+	testhtoi;
+	testitoh;
+	testitohx;
+	testitozh;
+	testddtoi;
+	testitodd;
+	testotoi;
+	testitoo;
+	testitooa;
+	testround;
+	testfround;
+	testaround;
+	testswap;
+	testswaplong;
+	testputchar;
+	testputstr;
+	testputendl;
+	testputnbr;
+	testputnbr_base;
+	testputlong;
+	testputull;
+	testputznbr;
+	testputflo;
+	testputzflo;
+	testputzschi;
+	testputzschih;
+	testvarlen;
+	testmax;
+	testvamax;
+	testmin;
+	testvamin;
+	testchrstr;
+	testsplits;
+	testcntchr;
+	testfczero;
+	testlftoi;
+	testlftoa;
+	testldeclen;
+	testislneg;
+	testdtoa;
+	testisallbyte;
+	testgetpwd;
+	
+	char *rrr = ft_ftoa(-1234.123456789);
+	printf("ft_ftoa: %s\n", rrr);
+	free(rrr);
+	printf("%f\n", ft_fround(1.123456, 4));
+	printf("%f\n", ft_iftof(1, 234));
+	printf("%f\n", ft_itof(234));
+	printf("%d\n", ft_ftoi(-0.12));
+	printf("%s\n", ft_itoh(120));
+	char *q;
+	q = "reverse me";
+	printf("%s\n", q);
+	q = ft_revstr("reverse me");
+	printf("%s\n", q);
+	q = ft_strupp("reverse me");
+	printf("%s\n", q);
+	char *strrr = "01234";
+	size_t size = 10;
+	char *ret = ft_substr(strrr, 10, size);
+	printf("%s", ret);
+	printf("%s\n", ft_itoh(123));
+	free(ret);
+	printf("%s\n", ft_itoa(01000));
+	printf("%d\n", ft_otoi(1000));
+	ft_strnstr(NULL, "", 10);
+	printf("1ok");
+	ft_substr("Hello World!", 0, 1024);
+	printf("%s\n", ft_strjoin(NULL, "string"));
+	ft_strnstr("World", "World", 4);
+	/*ft_strncmp(NULL, "Hallo", 5);*/
+	return (0);
+}
