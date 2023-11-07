@@ -52,8 +52,10 @@ Cub3D is a simple raycasting game using the mlx library
 - Lights
 - Weapon pickups
 - Weapon Animations
+- Stabs and bullets kill Enemies
 - Ammo system
 - Shooting Enemies
+- Animated Enemies
 - HP system
 
 ---
