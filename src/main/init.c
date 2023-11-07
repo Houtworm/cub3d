@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/06 01:18:00 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:32:14 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,19 @@ void	ft_initpickups(t_varlist *vl)
 
 void	ft_initenemies(t_varlist *vl)
 {
-	vl->nazitext = ft_calloc(4096, 8);
-	vl->nazitext[0] = mlx_load_png("./assets/nazi/guard/guard1.png");
+	vl->gidletext = ft_calloc(4096, 8);
+	vl->gidletext[0] = mlx_load_png("./assets/nazi/guard/guard1.png");
+	vl->gspottext = ft_calloc(4096, 8);
+	vl->gspottext[0] = mlx_load_png("./assets/nazi/guard/fire1.png");
+	vl->gspottext[1] = mlx_load_png("./assets/nazi/guard/fire2.png");
+	vl->gspottext[2] = mlx_load_png("./assets/nazi/guard/fire3.png");
+	vl->gspottext[3] = mlx_load_png("./assets/nazi/guard/fire4.png");
+	vl->gdeadtext = ft_calloc(4096, 8);
+	vl->gdeadtext[0] = mlx_load_png("./assets/nazi/guard/die1.png");
+	vl->gdeadtext[1] = mlx_load_png("./assets/nazi/guard/die2.png");
+	vl->gdeadtext[2] = mlx_load_png("./assets/nazi/guard/die3.png");
+	vl->gdeadtext[3] = mlx_load_png("./assets/nazi/guard/die4.png");
+	vl->gdeadtext[4] = mlx_load_png("./assets/nazi/guard/die5.png");
 }
 
 void	ft_initweapons(t_varlist *vl)

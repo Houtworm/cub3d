@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 11:50:21 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:40:46 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ void	ft_pickup(t_varlist *vl, int i)
 {
 	if (vl->sprite[i].number < 4)
 		vl->treasure++;
-	else if (vl->sprite[i].number < 7)
-		ft_putendl("Yummy\n");
+	else if (vl->sprite[i].number == 4)
+		vl->hp = vl->hp + 30;
+	else if (vl->sprite[i].number == 5)
+		vl->hp = vl->hp + 20;
+	else if (vl->sprite[i].number == 6)
+		vl->hp = vl->hp + 10;
 	else if (vl->sprite[i].number == 7)
 		ft_putendl("Found gold key\n");
 	else if (vl->sprite[i].number == 8)

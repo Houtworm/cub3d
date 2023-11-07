@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 11:04:09 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:37:31 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_drawspriteline(t_varlist *vl, t_draw *draw, int y, int x)
 		mlx_put_pixel(vl->img, x, y, color);
 }
 
-void	ft_drawsprite(t_varlist *vl, t_draw *draw, int x)
+void	ft_drawsprite(t_varlist *vl, t_draw *draw, int x, int i)
 {
 	int				y;
 
@@ -43,12 +43,19 @@ void	ft_drawsprite(t_varlist *vl, t_draw *draw, int x)
 		draw->texx = (int)(256 * (x - (-draw->spritewidth / 2 + draw->spritescreen)) * 64 / draw->spritewidth) / 256;
 		if (draw->transformy > 0 && x > 0 && x < vl->w && draw->transformy < vl->distance[x] + 0.7)
 		{
+			if (vl->sprite[i].type == 3 && vl->sprite[i].status == 0)
+				vl->sprite[i].status = 1;
 			y = draw->drawstarty;
 			while (y < draw->drawendy)
 			{
 				ft_drawspriteline(vl, draw, y, x);
 				y++;
 			}
+		}
+		else if (vl->sprite[i].type == 3 && vl->sprite[i].status < 2)
+		{
+			vl->sprite[i].status = 0;
+			vl->sprite[i].number = 0;
 		}
 		x++;
 	}

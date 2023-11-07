@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 21:27:51 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:21:54 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ mlx_texture_t	*ft_getsprite(t_varlist *vl, int i)
 		return (vl->decotext[vl->sprite[i].number]);
 	if (vl->sprite[i].type == 2)
 		return (vl->picktext[vl->sprite[i].number]);
-	return (vl->nazitext[vl->sprite[i].number]);
+	if (vl->sprite[i].type == 3 && vl->sprite[i].status == 0)
+		return (vl->gidletext[vl->sprite[i].number]);
+	if (vl->sprite[i].type == 3 && vl->sprite[i].status == 1)
+		return (vl->gspottext[vl->sprite[i].number]);
+	return (vl->gdeadtext[vl->sprite[i].number]);
 }
 
 void	ft_drawsprites(t_varlist *vl)
@@ -58,7 +62,7 @@ void	ft_drawsprites(t_varlist *vl)
 		ft_getdrawstartend(vl, draw);
 		x = draw->drawstartx;
 		vl->temptext = ft_getsprite(vl, i);
-		ft_drawsprite(vl, draw, x);
+		ft_drawsprite(vl, draw, x, i);
 		free(draw);
 		i++;
 	}

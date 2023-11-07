@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 05:24:08 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:45:01 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,23 +63,13 @@ void	ft_timers(t_varlist *vl)
 
 void	ft_fireweapon(t_varlist *vl)
 {
-	double	reloadtime;
-
-	if (vl->weapon == 0)
-		reloadtime = 0.05;
-	if (vl->weapon == 1)
-		reloadtime = 0.1;
-	if (vl->weapon == 2)
-		reloadtime = 0.05;
-	if (vl->weapon == 3)
-		reloadtime = 0.03;
 	if (vl->reload)
 	{
-		if (vl->tottime - vl->firetime > reloadtime)
+		if (vl->tottime - vl->firetime > vl->reloadtime)
 		{
 			vl->firetime = vl->tottime;
 			vl->reload++;
-			if (vl->reload > 2)
+			if (vl->reload == 2)
 			{
 				if (vl->weapon)
 					vl->ammo--;
@@ -92,6 +82,50 @@ void	ft_fireweapon(t_varlist *vl)
 
 }
 
+void	ft_animateenemies(t_varlist *vl)
+{
+	int	i;
+
+	i = 0;
+	while (vl->spritecount > i)
+	{
+		if (vl->sprite[i].status)
+		{
+			if (vl->sprite[i].status == 1)
+			{
+				if (vl->tottime - vl->sprite[i].anitime > 0.8)
+				{
+					vl->sprite[i].anitime = vl->tottime;
+					vl->sprite[i].number++;
+					if (vl->sprite[i].number == 4)
+						vl->sprite[i].number = 2;
+					else if (vl->sprite[i].number == 3)
+						vl->hp = vl->hp - 10;
+				}
+			}
+			if (vl->sprite[i].status == 2)
+			{
+				if (vl->tottime - vl->sprite[i].anitime > 0.1 && vl->sprite[i].number < 4)
+				{
+					vl->sprite[i].anitime = vl->tottime;
+					vl->sprite[i].number++;
+				}
+			}
+		}
+		i++;
+	}
+}
+
+void	ft_checkhealth(t_varlist *vl)
+{
+	if (vl->hp <= 0)
+	{
+		ft_putendl("You died!");
+		mlx_close_window(vl->mlx);
+		return ;
+	}
+}
+
 void	mainloop(void *param)
 {
 	t_varlist	*vl;
@@ -101,10 +135,12 @@ void	mainloop(void *param)
 	ft_drawmap(vl);
 	ft_checkpickup(vl);
 	/*ft_enemyaction(vl);*/
+	ft_animateenemies(vl);
 	ft_drawsprites(vl);
 	ft_drawweapon(vl);
 	ft_fireweapon(vl);
 	/*ft_drawminimap(vl);*/
+	ft_checkhealth(vl);
 	ft_timers(vl);
 	ft_printstats(vl);
 	ft_processinput(vl);

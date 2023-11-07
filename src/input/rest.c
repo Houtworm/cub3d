@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 05:23:11 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 05:31:00 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,12 @@ void	scrollhook(double xdelta, double ydelta, void *param)
 		ft_prevweapon(vl);
 	if (ydelta < 0)
 		ft_nextweapon(vl);
+	if (vl->weapon == 0)
+		vl->reloadtime = 0.05;
+	else if (vl->weapon == 1)
+		vl->reloadtime = 0.1;
+	else if (vl->weapon == 2)
+		vl->reloadtime = 0.05;
+	else if (vl->weapon == 3)
+		vl->reloadtime = 0.03;
 }

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 05:04:50 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:10:09 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,21 @@ int	ft_prepbullet(t_varlist *vl, int x)
 
 void	ft_killnazi(t_varlist *vl, int mapx, int mapy)
 {
+	int	i;
+
+	i = 0;
 	vl->map[mapx][mapy] = '0';
-	vl->kills++;
+	while (vl->spritecount > i)
+	{
+		if (mapy == (int)vl->sprite[i].y && mapx == (int)vl->sprite[i].x)
+		{
+			vl->sprite[i].status = 2;
+			vl->sprite[i].anitime = vl->tottime;
+			vl->kills++;
+			return ;
+		}
+		i++;
+	}
 }
 
 void	ft_firebullet(t_varlist *vl)

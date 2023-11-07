@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 05:24:25 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:22:15 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ typedef struct			s_sprite
 	double				distance;
 	double				x;
 	double				y;
+	double				anitime;
 	int					type;
 	int					number;
+	int					status;
 }						t_sprite;
 
 typedef struct			s_draw
@@ -61,7 +63,9 @@ typedef struct			s_varlist
 	mlx_texture_t		**walltext;
 	mlx_texture_t		**decotext;
 	mlx_texture_t		**picktext;
-	mlx_texture_t		**nazitext;
+	mlx_texture_t		**gidletext;
+	mlx_texture_t		**gspottext;
+	mlx_texture_t		**gdeadtext;
 	mlx_texture_t		**gun0text;
 	mlx_texture_t		**gun1text;
 	mlx_texture_t		**gun2text;
@@ -106,6 +110,7 @@ typedef struct			s_varlist
 	int					ammo;
 	int					weapon;
 	int					reload;
+	double				reloadtime;
 	int					hp;
 }						t_varlist;
 
@@ -139,7 +144,7 @@ void		ft_drawweapon(t_varlist *vl);
 int			ft_gettextx(t_varlist *vl);
 uint32_t	ft_gettextcolor(mlx_texture_t *texture, int texty, int textx);
 // SPRITE
-void		ft_drawsprite(t_varlist *vl, t_draw *draw, int x);
+void		ft_drawsprite(t_varlist *vl, t_draw *draw, int x, int i);
 t_draw		*ft_initdrawsprite(t_varlist *vl, int i);
 void		ft_getdrawstartend(t_varlist *vl, t_draw *draw);
 void		ft_drawsprites(t_varlist *vl);
