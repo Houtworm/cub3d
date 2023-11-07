@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 21:24:56 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 22:29:05 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef struct			s_varlist
 	int					reload;
 	double				reloadtime;
 	int					hp;
+	int					mmtoggle;
 }						t_varlist;
 
 // MAIN
@@ -123,6 +124,10 @@ int			ft_errorexit(char *reason, char *function, int code);
 void		ft_printstats(t_varlist *vl);
 void		ft_cleanup(t_varlist *vl);
 void		ft_firebullet(t_varlist *vl);
+void		ft_animateenemies(t_varlist *vl);
+void		ft_fireweapon(t_varlist *vl);
+void		ft_drawminimap(t_varlist *vl);
+void		ft_checkhealth(t_varlist *vl);
 // PARSE
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
 char		**ft_getmap(t_varlist *vl, int fd);

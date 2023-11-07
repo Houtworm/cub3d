@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 22:14:04 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 22:33:59 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_replaceimage(t_varlist *vl)
 	mlx_delete_image(vl->mlx, vl->mimg);
 	vl->img = mlx_new_image(vl->mlx, vl->w, vl->h);
 	vl->wimg = mlx_new_image(vl->mlx, 64, 64);
-	vl->mimg = mlx_new_image(vl->mlx, 21, 21);
+	vl->mimg = mlx_new_image(vl->mlx, 22, 22);
 }
 
 void	ft_timers(t_varlist *vl)
@@ -40,114 +40,6 @@ void	ft_timers(t_varlist *vl)
 	vl->tstat = mlx_put_string(vl->mlx, temp, 10, 70);
 	mlx_set_instance_depth(vl->tstat->instances, 5);
 	ft_vafree(2, time, temp);
-}
-
-void	ft_fireweapon(t_varlist *vl)
-{
-	if (vl->reload)
-	{
-		if (vl->tottime - vl->firetime > vl->reloadtime)
-		{
-			vl->firetime = vl->tottime;
-			vl->reload++;
-			if (vl->reload == 2)
-			{
-				if (vl->weapon)
-					vl->ammo--;
-				ft_firebullet(vl);
-			}
-			if (vl->reload > 4)
-				vl->reload = 0;
-		}
-	}
-
-}
-
-void	ft_animateenemies(t_varlist *vl)
-{
-	int	i;
-
-	i = 0;
-	while (vl->spritecount > i)
-	{
-		if (vl->sprite[i].status)
-		{
-			if (vl->sprite[i].status == 1)
-			{
-				if (vl->tottime - vl->sprite[i].anitime > 0.8)
-				{
-					vl->sprite[i].anitime = vl->tottime;
-					vl->sprite[i].number++;
-					if (vl->sprite[i].number == 4)
-						vl->sprite[i].number = 2;
-					else if (vl->sprite[i].number == 3)
-						vl->hp = vl->hp - 10;
-				}
-			}
-			if (vl->sprite[i].status == 2)
-			{
-				if (vl->tottime - vl->sprite[i].anitime > 0.2 && vl->sprite[i].number < 4)
-				{
-					vl->sprite[i].anitime = vl->tottime;
-					vl->sprite[i].number++;
-				}
-			}
-		}
-		i++;
-	}
-}
-
-void	ft_checkhealth(t_varlist *vl)
-{
-	if (vl->hp <= 0)
-	{
-		ft_putendl("You died!");
-		mlx_close_window(vl->mlx);
-		return ;
-	}
-}
-
-void	ft_drawminimap(t_varlist *vl)
-{
-	int			mapy;
-	int			mapx;
-	int			y;
-	int			x;
-
-	mapy = (int)vl->posx - 10;
-	mapx = (int)vl->posy - 10;
-	y = 0;
-	while (y <= 21)
-	{
-		x = 0;
-		while (x <= 21)
-		{
-			if (x == 10 && y == 10)
-				mlx_put_pixel(vl->mimg, x, y, 0xFFFF00FF);
-			else if (y >= 21 || x >= 21)
-				printf("out of bounds\n");
-			else if (mapy < 0 || mapx < 0)
-				mlx_put_pixel(vl->mimg, x, y, 0xFFFFFF00);
-			else if (vl->mapsizey < mapy || vl->mapsizex < mapx)
-				mlx_put_pixel(vl->mimg, x, y, 0xFFFFFF00);
-			else if (vl->map[mapy][mapx] == '0')
-				mlx_put_pixel(vl->mimg, x, y, 0x646464FF);
-			else if (vl->map[mapy][mapx] == '1')
-				mlx_put_pixel(vl->mimg, x, y, 0x0000FFFF);
-			else if (vl->map[mapy][mapx] == '2')
-				mlx_put_pixel(vl->mimg, x, y, 0x00FF00FF);
-			else if (vl->map[mapy][mapx] == '3')
-				mlx_put_pixel(vl->mimg, x, y, 0xFF0000FF);
-			mapx++;
-			x++;
-		}
-		mapy++;
-		y++;
-		mapx = (int)vl->posy - 10;
-	}
-	mlx_resize_image(vl->mimg, 168, 168);
-	mlx_image_to_window(vl->mlx, vl->mimg, vl->w - 178, 10);
-	mlx_set_instance_depth(vl->mimg->instances, 11);
 }
 
 void	mainloop(void *param)
