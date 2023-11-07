@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 18:50:53 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 04:49:47 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ char	ft_addenemy(t_varlist *vl, int x, int y, int number)
 	vl->sprite[vl->spritecount].type = 3;
 	vl->enemies++;
 	vl->spritecount++;
-	return ('2');
+	return ('3');
 }

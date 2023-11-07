@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/05 22:29:47 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/07 05:03:51 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC			=src/main/main.c\
 			 src/main/init.c\
 			 src/main/error.c\
 			 src/main/cleanup.c\
+			 src/main/bullet.c\
 			 src/parse/parse.c\
 			 src/parse/map.c\
 			 src/parse/sprite.c\

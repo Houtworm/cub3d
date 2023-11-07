@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/06 01:16:25 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 05:00:29 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ t_varlist	initgame(void);
 int			ft_errorexit(char *reason, char *function, int code);
 void		ft_printstats(t_varlist *vl);
 void		ft_cleanup(t_varlist *vl);
+void		ft_firebullet(t_varlist *vl);
 // PARSE
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
 char		**ft_getmap(t_varlist *vl, int fd);

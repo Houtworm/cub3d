@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/06 01:15:49 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 05:03:33 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ void	ft_fireweapon(t_varlist *vl)
 			vl->anitime = 0;
 			vl->firetime = vl->anitime;
 			vl->reload++;
+			if (vl->reload > 2)
+			{
+				ft_firebullet(vl);
+			}
 			if (vl->reload > 4)
 			{
 				if (vl->weapon)
