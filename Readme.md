@@ -13,9 +13,7 @@ Cub3D is a simple raycasting game using the mlx library
 - Help screen
 - End level screen
 - Zoom with right mouse button
-- Shooting Enemies
 - Moving Enemies
-- HP system
 - Score system
 - Levels
 - Start Menu // breaks mandatory subject
@@ -54,6 +52,8 @@ Cub3D is a simple raycasting game using the mlx library
 - Weapon pickups
 - Weapon Animations
 - Ammo system
+- Shooting Enemies
+- HP system
 
 ---
 ## Bugs
