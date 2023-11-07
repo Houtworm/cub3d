@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 19:05:34 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 21:29:03 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	**ft_getmap(t_varlist *vl, int fd)
 
 	map = ft_calloc(1024, 8);
 	y = 0;
+	x = 0;
 	ret = 1;
 	while (y <= 1024 && ret > 0)
 	{
@@ -73,6 +74,7 @@ char	**ft_getmap(t_varlist *vl, int fd)
 		if (ret == 0)
 		{
 			free(map[y]);
+			vl->mapsizey = y - 1;
 			return (map);
 		}
 		x = 0;
@@ -87,7 +89,7 @@ char	**ft_getmap(t_varlist *vl, int fd)
 			else if (ft_strchr("NESW", line[x]))
 				map[y][x] = ft_setplayerpos(vl, line[x], y, x);
 			else if (line[x] == 'D')
-				map[y][x] = 'D';
+				map[y][x] = '0';
 			else if (line[x] == 'B')
 				map[y][x] = ft_addsoliddecor(vl, y, x, 0);
 			else if (line[x] == 'b')
@@ -146,6 +148,7 @@ char	**ft_getmap(t_varlist *vl, int fd)
 				ft_errorexit("K Enemy\nG groundlamp\nH Hanglamp", "", 1);
 			}
 			x++;
+			vl->mapsizex = x - 1;
 		}
 		free(line);
 		y++;

@@ -8,19 +8,13 @@ Cub3D is a simple raycasting game using the mlx library
 - Check if all needed elements are present in the closed part of the map
 ### Bonus
 - Doors
-- Minimap
 ### Extra
 - Help screen
 - End level screen
-- You died screen
+- You died screen with retry button
 - Zoom with right mouse button
 - Moving Enemies
 - Score system
-- Levels
-- Start Menu // breaks mandatory subject
-- Skybox // Breaks mandatory subject
-- Sounds // need forbidden functions
-- Music // need forbidden functions
 
 ---
 ## Features
@@ -37,6 +31,7 @@ Cub3D is a simple raycasting game using the mlx library
 - Wall Collision
 - Rotate with the mouse
 - Animated Sprites
+- Minimap
 ### Extra
 - FPS counter
 - Timer
