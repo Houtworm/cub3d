@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 06:10:09 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 18:39:15 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	ft_firebullet(t_varlist *vl)
 			return ;
 		}
 		if (vl->map[mapx][mapy] == '1')
+			return ;
+		if (vl->weapon == 0)
 			return ;
 	}
 }
