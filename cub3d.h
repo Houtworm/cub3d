@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 05:00:29 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 05:24:25 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ typedef struct			s_varlist
 	int					*distance;
 	int					treasure;
 	int					tottreasure;
-	int					tottime;
-	double				anitime;
+	double				tottime;
 	double				firetime;
 	int					enemies;
 	int					kills;

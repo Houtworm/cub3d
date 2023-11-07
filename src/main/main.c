@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 05:03:33 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 05:24:08 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ void	ft_timers(t_varlist *vl)
 	char	*temp;
 
 	vl->frametime = vl->mlx->delta_time;
-	vl->anitime = vl->anitime + vl->frametime;
-	vl->tottime = (int)mlx_get_time();
+	vl->tottime = vl->tottime + vl->frametime;
 	time = ft_itoa(vl->tottime);
 	temp = ft_vastrjoin(3, "Time: ", time, " Seconds");
 	vl->tstat = mlx_put_string(vl->mlx, temp, 10, 70);
@@ -76,21 +75,18 @@ void	ft_fireweapon(t_varlist *vl)
 		reloadtime = 0.03;
 	if (vl->reload)
 	{
-		if (vl->anitime - vl->firetime > reloadtime)
+		if (vl->tottime - vl->firetime > reloadtime)
 		{
-			vl->anitime = 0;
-			vl->firetime = vl->anitime;
+			vl->firetime = vl->tottime;
 			vl->reload++;
 			if (vl->reload > 2)
 			{
+				if (vl->weapon)
+					vl->ammo--;
 				ft_firebullet(vl);
 			}
 			if (vl->reload > 4)
-			{
-				if (vl->weapon)
-					vl->ammo--;
 				vl->reload = 0;
-			}
 		}
 	}
 

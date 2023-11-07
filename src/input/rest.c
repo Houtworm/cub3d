@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/06 01:05:43 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 05:23:11 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ void	ft_processguns(t_varlist *vl)
 	if (mlx_is_mouse_down(vl->mlx, MLX_MOUSE_BUTTON_LEFT) && vl->reload == 0)
 	{
 		if (vl->ammo || !vl->weapon)
-		{
-			vl->anitime = vl->frametime;
 			vl->reload = 1;
-		}
 	}
 	if (mlx_is_mouse_down(vl->mlx, MLX_MOUSE_BUTTON_RIGHT))
 		ft_putendl("zoom");
