@@ -1,0 +1,9 @@
+*.pdf
+*.o
+*.a
+cub3d
+LICENSE
+mlx/build
+obj
+.git
+.ccls-cache
