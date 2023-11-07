@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 06:40:46 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/07 06:52:50 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@ void	ft_pickup(t_varlist *vl, int i)
 	else if (vl->sprite[i].number == 8)
 		ft_putendl("Found blue key\n");
 	else if (vl->sprite[i].number == 9)
+	{
 		vl->mgun = 1;
+		vl->weapon = 2;
+		vl->reloadtime = 0.05;
+	}
 	else if (vl->sprite[i].number == 10)
+	{
 		vl->ggun = 1;
+		vl->weapon = 3;
+		vl->reloadtime = 0.02;
+	}
 	else if (vl->sprite[i].number == 11)
 		vl->ammo += 10;
 	while (vl->sprite[i].x)
