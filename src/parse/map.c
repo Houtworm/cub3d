@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 21:29:03 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 04:37:32 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ char	**ft_getmap(t_varlist *vl, int fd)
 		if (ret == 0)
 		{
 			free(map[y]);
-			vl->mapsizey = y - 1;
 			return (map);
 		}
 		x = 0;
@@ -147,10 +146,11 @@ char	**ft_getmap(t_varlist *vl, int fd)
 				ft_putstr("D Door\nC Collectible\nB Barrel\nX Level end\n");
 				ft_errorexit("K Enemy\nG groundlamp\nH Hanglamp", "", 1);
 			}
-			x++;
 			vl->mapsizex = x - 1;
+			x++;
 		}
 		free(line);
+		vl->mapsizey = y - 1;
 		y++;
 	}
 	ft_errorexit("Something went wrong", "ft_getmap", 1);

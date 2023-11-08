@@ -3,9 +3,6 @@ Cub3D is a simple raycasting game using the mlx library
 
 ---
 ## Todo
-### Parsing
-- Flood fill the map starting from the player to check if it is a closed map
-- Check if all needed elements are present in the closed part of the map
 ### Bonus
 - Doors
 ### Extra

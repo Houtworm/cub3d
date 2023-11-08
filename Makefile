@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/07 22:28:00 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/08 04:45:10 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC			=src/main/main.c\
 			 src/parse/parse.c\
 			 src/parse/map.c\
 			 src/parse/sprite.c\
+			 src/parse/flood.c\
 			 src/draw/raycast.c\
 			 src/draw/world.c\
 			 src/draw/texture.c\
