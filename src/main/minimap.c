@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 22:33:49 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 03:04:46 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_drawminimap(t_varlist *vl)
 	int			y;
 	int			x;
 
-	if (vl->mmtoggle % 2)
+	if (vl->minimap % 2)
 	{
 		mapy = (int)vl->posx - 10;
 		mapx = (int)vl->posy - 10;

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 22:19:27 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 03:06:42 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ void	keyhook(mlx_key_data_t kd, void *param)
 	if ((kd.key == MLX_KEY_H || kd.key == MLX_KEY_F1) && kd.action == MLX_PRESS)
 		ft_putendl("H is pressed");
 	if (kd.key == MLX_KEY_M && kd.action == MLX_PRESS)
-		vl->mmtoggle++;
+		vl->minimap++;
+	if (kd.key == MLX_KEY_N && kd.action == MLX_PRESS)
+		vl->stats++;
 }
 
 void	resizehook(int x, int y, void *param)

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 22:33:59 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 03:10:39 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,8 @@ void	ft_replaceimage(t_varlist *vl)
 
 void	ft_timers(t_varlist *vl)
 {
-	char	*time;
-	char	*temp;
-
 	vl->frametime = vl->mlx->delta_time;
 	vl->tottime = vl->tottime + vl->frametime;
-	time = ft_itoa(vl->tottime);
-	temp = ft_vastrjoin(3, "Time: ", time, " Seconds");
-	vl->tstat = mlx_put_string(vl->mlx, temp, 10, 70);
-	mlx_set_instance_depth(vl->tstat->instances, 5);
-	ft_vafree(2, time, temp);
 }
 
 void	mainloop(void *param)

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 22:29:05 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 03:04:26 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,8 @@ typedef struct			s_varlist
 	int					reload;
 	double				reloadtime;
 	int					hp;
-	int					mmtoggle;
+	int					minimap;
+	int					stats;
 }						t_varlist;
 
 // MAIN

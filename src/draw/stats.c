@@ -6,15 +6,14 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/06 01:17:31 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 03:12:25 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void	ft_printgamestats(t_varlist *vl)
+void	ft_printtimestats(t_varlist *vl)
 {
-	char	*total;
 	char	*current;
 	char	*temp;
 
@@ -22,6 +21,19 @@ void	ft_printgamestats(t_varlist *vl)
 	temp = ft_strjoin(current, " FPS");
 	vl->fstat = mlx_put_string(vl->mlx, temp, 10, 10);
 	ft_vafree(2, temp, current);
+	current = ft_itoa(vl->tottime);
+	temp = ft_vastrjoin(3, "Time: ", current, " Seconds");
+	vl->tstat = mlx_put_string(vl->mlx, temp, 10, 70);
+	ft_vafree(2, current, temp);
+	mlx_set_instance_depth(vl->fstat->instances, 2);
+	mlx_set_instance_depth(vl->tstat->instances, 3);
+}
+void	ft_printgamestats(t_varlist *vl)
+{
+	char	*total;
+	char	*current;
+	char	*temp;
+
 	total = ft_itoa(vl->enemies);
 	current = ft_itoa(vl->kills);
 	temp = ft_vastrjoin(4, "Kills: ", current, "/", total);
@@ -32,9 +44,8 @@ void	ft_printgamestats(t_varlist *vl)
 	temp = ft_vastrjoin(4, "Treasure: ", current, "/", total);
 	vl->kstat = mlx_put_string(vl->mlx, temp, 10, 50);
 	ft_vafree(3, temp, total, current);
-	mlx_set_instance_depth(vl->fstat->instances, 2);
-	mlx_set_instance_depth(vl->cstat->instances, 3);
-	mlx_set_instance_depth(vl->kstat->instances, 4);
+	mlx_set_instance_depth(vl->cstat->instances, 4);
+	mlx_set_instance_depth(vl->kstat->instances, 5);
 }
 
 void	ft_printplayerstats(t_varlist *vl)
@@ -56,6 +67,10 @@ void	ft_printplayerstats(t_varlist *vl)
 
 void	ft_printstats(t_varlist *vl)
 {
-	ft_printgamestats(vl);
+	if (vl->stats % 2)
+	{
+		ft_printgamestats(vl);
+		ft_printtimestats(vl);
+	}
 	ft_printplayerstats(vl);
 }
