@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 23:27:55 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 05:57:24 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,13 @@ void	ft_drawmap(t_varlist *vl)
 {
 	int	x;
 	int	y;
-	int	mapx;
-	int	mapy;
 
-	mapx = (int)vl->posx;
-	mapy = (int)vl->posy;
 	x = 0;
 	while (x <= vl->w)
 	{
-		ft_raycast(vl, x, mapx, mapy);
+		vl->mapx = (int)vl->posx;
+		vl->mapy = (int)vl->posy;
+		ft_raycast(vl, x);
 		y = ft_drawceiling(x, vl, ft_getwallheight(vl, 1));
 		y = ft_drawwall(x, vl, ft_getwallheight(vl, 1), ft_getwallheight(vl, 2), y);
 		ft_drawfloor(x, vl, y);

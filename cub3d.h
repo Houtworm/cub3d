@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 04:45:00 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 06:17:34 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct			s_varlist
 	mlx_image_t			*mimg;
 	mlx_texture_t		*temptext;
 	mlx_texture_t		**walltext;
+	mlx_texture_t		**elevtext;
 	mlx_texture_t		**decotext;
 	mlx_texture_t		**picktext;
 	mlx_texture_t		**gidletext;
@@ -85,6 +86,8 @@ typedef struct			s_varlist
 	double				diry;
 	double				planex;
 	double				planey;
+	int					mapx;
+	int					mapy;
 	int					vaim;
 	int					jump;
 	double				run;
@@ -129,6 +132,7 @@ void		ft_animateenemies(t_varlist *vl);
 void		ft_fireweapon(t_varlist *vl);
 void		ft_drawminimap(t_varlist *vl);
 void		ft_checkhealth(t_varlist *vl);
+void		ft_finish(t_varlist *vl);
 // PARSE
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
 char		**ft_getmap(t_varlist *vl, int fd);
@@ -148,7 +152,7 @@ void		scrollhook(double xdelta, double ydelta, void *param);
 void		resizehook(int x, int y, void *param);
 void		cursorhook(double x, double y, void *param);
 // DRAW
-void		ft_raycast(t_varlist *vl, int x, int mapx, int mapy);
+void		ft_raycast(t_varlist *vl, int x);
 void		ft_drawmap(t_varlist *vl);
 void		ft_drawweapon(t_varlist *vl);
 int			ft_gettextx(t_varlist *vl);

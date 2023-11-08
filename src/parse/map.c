@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 04:37:32 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 05:05:50 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,8 @@ char	**ft_getmap(t_varlist *vl, int fd)
 				map[y][x] = ft_addpickup(vl, y, x, 11);
 			else if (line[x] == 'K')
 				map[y][x] = ft_addenemy(vl, y, x, 0);
+			else if (line[x] == 'X')
+				map[y][x] = '4';
 			else
 			{
 				ft_putstr("Invalid character on the map\n Valid options are\n");

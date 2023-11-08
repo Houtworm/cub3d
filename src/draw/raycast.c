@@ -6,7 +6,7 @@
 /*   By: djonker <codam@houtworm.net>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/27 14:36:42 by djonker       #+#    #+#                 */
-/*   Updated: 2023/11/08 04:25:53 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 06:01:36 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,30 @@ int	ft_prepcast(t_varlist *vl, int x)
 	return (0);
 }
 
-void	ft_raycast(t_varlist *vl, int x, int mapx, int mapy)
+void	ft_raycast(t_varlist *vl, int x)
 {
 	int		hit;
 	int		stepx;
 	int		stepy;
 
 	hit = ft_prepcast(vl, x);
-	stepx = ft_getstepx(vl, mapx);
-	stepy = ft_getstepy(vl, mapy);
+	stepx = ft_getstepx(vl, vl->mapx);
+	stepy = ft_getstepy(vl, vl->mapy);
 	while (hit == 0)
 	{
 		if (vl->sidedistx < vl->sidedisty)
 		{
 			vl->sidedistx += vl->deltadistx;
-			mapx += stepx;
+			vl->mapx += stepx;
 			vl->side = 0;
 		}
 		else
 		{
 			vl->sidedisty += vl->deltadisty;
-			mapy += stepy;
+			vl->mapy += stepy;
 			vl->side = 1;
 		}
-		if (vl->map[mapx][mapy] == '1')
+		if (vl->map[vl->mapx][vl->mapy] == '1' || vl->map[vl->mapx][vl->mapy] == '4')
 			hit = 1;
 	}
 }

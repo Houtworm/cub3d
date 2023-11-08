@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 03:04:08 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 05:33:22 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void	ft_initweapons(t_varlist *vl)
 
 void	ft_initmainstuff(t_varlist *vl)
 {
+	vl->elevtext = ft_calloc(4096, 8);
+	vl->elevtext[0] = mlx_load_png("./assets/wall/elevator.png");
 	vl->w = 800;
 	vl->h = 600;
 	vl->sprite = ft_calloc(4096, 8);

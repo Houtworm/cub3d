@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 18:39:15 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 06:12:16 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	ft_firebullet(t_varlist *vl)
 			ft_killnazi(vl, mapx, mapy);
 			return ;
 		}
-		if (vl->map[mapx][mapy] == '1')
+		if (vl->map[mapx][mapy] == '1' || vl->map[mapx][mapy] == '4')
 			return ;
 		if (vl->weapon == 0)
 			return ;
