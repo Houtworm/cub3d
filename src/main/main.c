@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 03:10:39 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 04:03:29 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,64 @@ void	mainloop(void *param)
 	mlx_set_instance_depth(vl->img->instances, 1);
 }
 
+int	ft_flood(char **fillmap, int x, int y)
+{
+	if (fillmap[y - 1][x] == '0' || fillmap[y][x] == '3')
+	{
+
+		fillmap[y - 1][x] = 'F';
+		if (ft_flood(fillmap, x, y - 1))
+			return (1);
+	}
+	if (fillmap[y + 1][x] == '0' || fillmap[y][x] == '3')
+	{
+
+		fillmap[y + 1][x] = 'F';
+		if (ft_flood(fillmap, x, y + 1))
+			return (1);
+	}
+	if (fillmap[y][x - 1] == '0' || fillmap[y][x] == '3')
+	{
+
+		fillmap[y][x - 1] = 'F';
+		if (ft_flood(fillmap, x - 1, y))
+			return (1);
+	}
+	if (fillmap[y][x + 1] == '0' || fillmap[y][x] == '3')
+	{
+		fillmap[y][x + 1] = 'F';
+		if (ft_flood(fillmap, x + 1, y))
+			return (1);
+	}
+	return (0);
+}
+
+int	ft_floodfill(t_varlist vl)
+{
+	int		y;
+	int		x;
+	char	**fillmap;
+
+	fillmap = ft_calloc(1024, 8);
+	y = 0;
+	while (vl.map[y])
+	{
+		fillmap[y] = ft_strdup(vl.map[y]);
+		y++;
+	}
+	y = (int)vl.posy;
+	x = (int)vl.posx;
+	if (fillmap[y][x] == '0' || fillmap[y][x] == '3')
+	{
+		fillmap[y][x] = 'F';
+		if (ft_flood(fillmap, x, y))
+			return (1);
+	}
+	else
+		return (1);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_varlist	vl;
@@ -67,6 +125,8 @@ int	main(int argc, char **argv)
 		vl = ft_parseconfigfile(vl, argv[1]);
 	else
 		ft_errorexit("Please include a .cub file ", "", 2);
+	if (ft_floodfill(vl))
+		ft_errorexit("map is invalid", "floodfill", 1);
 	if (!vl.img || (mlx_image_to_window(vl.mlx, vl.img, 0, 0) < 0))
 		ft_errorexit("image to window failed ", "main", 1);
 	mlx_key_hook(vl.mlx, &keyhook, &vl);

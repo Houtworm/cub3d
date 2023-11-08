@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:48:55 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 08:19:52 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 03:34:21 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,6 @@ t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
 	close(fd);
 	free(line);
 	if (!vl.map)
-		ft_errorexit("The map is too big, 500x500 max\n", "", 1);
+		ft_errorexit("The map is too big, 1000x1000 max\n", "", 1);
 	return (vl);
 }
