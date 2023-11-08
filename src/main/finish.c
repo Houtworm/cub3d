@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 06:43:48 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/08 07:11:48 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	ft_getscore(t_varlist *vl)
 {
 	int		score;
 
-	score = vl->treasure * 10000 + vl->kills * 1000;
-	score = score + vl->ammo * 100 + vl->hp * 100;
-	score = score - vl->tottime * 10;
+	score = (vl->treasure * 10000) + (vl->kills * 1000);
+	score = score + (vl->ammo * 100) + (vl->hp * 100);
+	score = score - (vl->tottime * 10);
 	if (vl->enemies == vl->kills)
 		score = score + 50000;
 	if (vl->treasure == vl->tottreasure)
