@@ -10,7 +10,6 @@ Cub3D is a simple raycasting game using the mlx library
 - You died screen with retry button
 - Zoom with right mouse button
 - Moving Enemies
-- Score system
 
 ---
 ## Features
@@ -48,6 +47,8 @@ Cub3D is a simple raycasting game using the mlx library
 - Shooting Enemies
 - Animated Enemies
 - HP system
+- Score system
+- Level end elevator
 
 ---
 ## Bugs
