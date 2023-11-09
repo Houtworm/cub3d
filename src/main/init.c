@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:40:37 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 09:00:42 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	ft_initmainstuff(t_varlist *vl)
 	vl->hp = 100;
 	vl->weapon = 1;
 	vl->reloadtime = 0.1;
+	vl->firetime = 0;
 	vl->reload = 0;
 	vl->ccolor = 0;
 	vl->fcolor = 0;

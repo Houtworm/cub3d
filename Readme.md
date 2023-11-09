@@ -57,7 +57,7 @@ Cub3D is a simple raycasting game using the mlx library
 ## Usage
 1. Simply clone or download the repository
 2. Run `make` in the cloned directory
-3. Start the game with `./cub3d`
+3. Start the game with `./cub3d maps/level.cub`
 
 ---
 [This project is part of the studies at 42](https://42.fr/en/homepage/)
