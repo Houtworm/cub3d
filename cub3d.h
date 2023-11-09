@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 03:02:59 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 22:27:39 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct			s_varlist
 	mlx_image_t			*wimg;
 	mlx_image_t			*mimg;
 	mlx_image_t			*oimg;
+	mlx_image_t			*fimg;
 	mlx_texture_t		*temptext;
 	mlx_texture_t		**walltext;
 	mlx_texture_t		**elevtext;
@@ -125,6 +126,8 @@ typedef struct			s_varlist
 	int					stats;
 	int					menu;
 	char				*cubfile;
+	int					flash;
+	int					flashcolor;
 }						t_varlist;
 
 // MAIN
@@ -165,6 +168,7 @@ void		ft_drawmap(t_varlist *vl);
 void		ft_drawweapon(t_varlist *vl);
 int			ft_gettextx(t_varlist *vl);
 uint32_t	ft_gettextcolor(mlx_texture_t *texture, int texty, int textx);
+void		ft_flashscreen(t_varlist *vl, int x, int y, uint32_t color);
 // SPRITE
 void		ft_drawsprite(t_varlist *vl, t_draw *draw, int x, int i);
 t_draw		*ft_initdrawsprite(t_varlist *vl, int i);

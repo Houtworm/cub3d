@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 19:49:22 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 22:27:16 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_replaceimage(t_varlist *vl)
 	mlx_delete_image(vl->mlx, vl->astat);
 	mlx_delete_image(vl->mlx, vl->hstat);
 	mlx_delete_image(vl->mlx, vl->wimg);
+	mlx_delete_image(vl->mlx, vl->fimg);
 	mlx_delete_image(vl->mlx, vl->mimg);
 	vl->img = mlx_new_image(vl->mlx, vl->w, vl->h);
 	vl->wimg = mlx_new_image(vl->mlx, 64, 64);
@@ -77,8 +78,8 @@ void	mainloop(void *param)
 	{
 		ft_replaceimage(vl);
 		ft_drawmap(vl);
-		ft_checkpickup(vl);
 		ft_animateenemies(vl);
+		ft_checkpickup(vl);
 		ft_drawsprites(vl);
 		ft_drawweapon(vl);
 		ft_fireweapon(vl);
@@ -87,6 +88,7 @@ void	mainloop(void *param)
 			ft_youdied(vl);
 		ft_timers(vl);
 		ft_printstats(vl);
+		ft_flashscreen(vl, 0, 0, 0);
 		ft_imagetowindow(vl);
 	}
 	else if (vl->menu == 3)

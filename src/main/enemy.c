@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 21:35:59 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 22:30:14 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ void	ft_animateenemies(t_varlist *vl)
 					if (vl->sprite[i].number == 4)
 						vl->sprite[i].number = 2;
 					else if (vl->sprite[i].number == 3)
+					{
 						vl->hp = vl->hp - 10;
+						vl->flash = 6;
+						vl->flashcolor = 1;
+					}
 				}
 			}
 			if (vl->sprite[i].status == 2)
