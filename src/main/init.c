@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 05:33:22 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 02:25:58 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ void	ft_initmainstuff(t_varlist *vl)
 	vl->fcolor = 0;
 	vl->minimap = 0;
 	vl->stats = 0;
+	vl->menu = 0;
 	vl->walltext[0] = NULL;
 	vl->walltext[1] = NULL;
 	vl->walltext[2] = NULL;

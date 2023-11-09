@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 00:52:32 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 01:28:43 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_printtimestats(t_varlist *vl)
 	mlx_set_instance_depth(vl->fstat->instances, 2);
 	mlx_set_instance_depth(vl->tstat->instances, 3);
 }
+
 void	ft_printgamestats(t_varlist *vl)
 {
 	char	*total;
@@ -53,16 +54,18 @@ void	ft_printplayerstats(t_varlist *vl)
 	char	*current;
 	char	*temp;
 
-	current = ft_itoa(vl->ammo);
-	temp = ft_vastrjoin(2, "Ammo: ", current);
-	vl->astat = mlx_put_string(vl->mlx, temp, 10, vl->h - 30);
-	ft_vafree(2, temp, current);
 	current = ft_itoa(vl->hp);
 	temp = ft_vastrjoin(2, "HP: ", current);
-	vl->hstat = mlx_put_string(vl->mlx, temp, 10, vl->h - 50);
+	vl->hstat = mlx_put_string(vl->mlx, temp, 10, vl->h - 40);
 	ft_vafree(2, temp, current);
-	mlx_set_instance_depth(vl->astat->instances, 6);
+	mlx_resize_image(vl->hstat, 120, 30);
 	mlx_set_instance_depth(vl->hstat->instances, 7);
+	current = ft_itoa(vl->ammo);
+	temp = ft_vastrjoin(2, "Ammo: ", current);
+	vl->astat = mlx_put_string(vl->mlx, temp, vl->w - 160, vl->h - 40);
+	ft_vafree(2, temp, current);
+	mlx_resize_image(vl->astat, 150, 30);
+	mlx_set_instance_depth(vl->astat->instances, 6);
 }
 
 void	ft_printstats(t_varlist *vl)

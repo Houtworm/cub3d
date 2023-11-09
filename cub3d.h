@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 00:58:34 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 03:02:59 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ typedef struct			s_varlist
 	mlx_image_t			*kstat;
 	mlx_image_t			*astat;
 	mlx_image_t			*hstat;
+	mlx_image_t			**mstat;
 	mlx_image_t			*wimg;
 	mlx_image_t			*mimg;
+	mlx_image_t			*oimg;
 	mlx_texture_t		*temptext;
 	mlx_texture_t		**walltext;
 	mlx_texture_t		**elevtext;
@@ -77,6 +79,7 @@ typedef struct			s_varlist
 	int					w;
 	int					h;
 	char				**map;
+	char				**backupmap;
 	int					mapsizey;
 	int					mapsizex;
 	double				frametime;
@@ -120,6 +123,8 @@ typedef struct			s_varlist
 	int					hp;
 	int					minimap;
 	int					stats;
+	int					menu;
+	char				*cubfile;
 }						t_varlist;
 
 // MAIN
@@ -134,6 +139,8 @@ void		ft_drawminimap(t_varlist *vl);
 void		ft_interact(t_varlist *vl);
 void		ft_checkhealth(t_varlist *vl);
 void		ft_finish(t_varlist *vl);
+void		ft_youdied(t_varlist *vl);
+void		ft_initmainstuff(t_varlist *vl);
 // PARSE
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
 char		**ft_getmap(t_varlist *vl, int fd);

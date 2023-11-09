@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 00:39:30 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 01:04:20 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_checkmove(t_varlist *vl, double movy, double movx, double movespeed)
 {
-	double length;
-	double newx;
-	double newy;
+	double	length;
+	double	newx;
+	double	newy;
 
 	length = sqrt(movx * movx + movy * movy);
 	if (length != 0)

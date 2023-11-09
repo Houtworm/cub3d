@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 04:45:31 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 02:33:58 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	ft_replaceimage(t_varlist *vl)
 	mlx_delete_image(vl->mlx, vl->hstat);
 	mlx_delete_image(vl->mlx, vl->wimg);
 	mlx_delete_image(vl->mlx, vl->mimg);
+	mlx_delete_image(vl->mlx, vl->oimg);
 	vl->img = mlx_new_image(vl->mlx, vl->w, vl->h);
+	vl->oimg = mlx_new_image(vl->mlx, vl->w, vl->h);
 	vl->wimg = mlx_new_image(vl->mlx, 64, 64);
 	vl->mimg = mlx_new_image(vl->mlx, 22, 22);
 }
@@ -34,26 +36,38 @@ void	ft_timers(t_varlist *vl)
 	vl->tottime = vl->tottime + vl->frametime;
 }
 
+void	ft_restartgame(t_varlist *vl)
+{
+	// free some stuff first
+	ft_initmainstuff(vl);
+	*vl = ft_parseconfigfile(*vl, vl->cubfile);
+}
+
 void	mainloop(void *param)
 {
 	t_varlist	*vl;
 
 	vl = param;
-	ft_replaceimage(vl);
-	ft_drawmap(vl);
-	ft_checkpickup(vl);
-	ft_animateenemies(vl);
-	ft_drawsprites(vl);
-	ft_drawweapon(vl);
-	ft_fireweapon(vl);
-	ft_drawminimap(vl);
-	ft_checkhealth(vl);
-	ft_timers(vl);
-	ft_printstats(vl);
+	if (vl->menu == 0)
+	{
+		ft_replaceimage(vl);
+		ft_drawmap(vl);
+		ft_checkpickup(vl);
+		ft_animateenemies(vl);
+		ft_drawsprites(vl);
+		ft_drawweapon(vl);
+		ft_fireweapon(vl);
+		ft_drawminimap(vl);
+		ft_checkhealth(vl);
+		ft_timers(vl);
+		ft_printstats(vl);
+		if (!vl->img || (mlx_image_to_window(vl->mlx, vl->img, 0, 0) < 0))
+			ft_errorexit("image to window failed ", "mainloop", 1);
+		mlx_set_instance_depth(vl->img->instances, 1);
+	}
+	else if (vl->menu == 3)
+		ft_restartgame(vl);
 	ft_processinput(vl);
-	if (!vl->img || (mlx_image_to_window(vl->mlx, vl->img, 0, 0) < 0))
-		ft_errorexit("image to window failed ", "mainloop", 1);
-	mlx_set_instance_depth(vl->img->instances, 1);
 }
 
 int	main(int argc, char **argv)
@@ -67,6 +81,7 @@ int	main(int argc, char **argv)
 		vl = ft_parseconfigfile(vl, argv[1]);
 	else
 		ft_errorexit("Please include a .cub file ", "", 2);
+	vl.backupmap = vl.map;
 	if (ft_floodfill(vl))
 		ft_errorexit("map is invalid", "floodfill", 1);
 	if (!vl.img || (mlx_image_to_window(vl.mlx, vl.img, 0, 0) < 0))
