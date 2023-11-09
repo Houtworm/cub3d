@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 22:27:39 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 22:49:58 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "mlx/include/MLX42/MLX42.h"
 # include <stdio.h>
 
-typedef struct			s_sprite
+typedef struct s_sprite
 {
 	double				distance;
 	double				x;
@@ -32,7 +32,7 @@ typedef struct			s_sprite
 	int					status;
 }						t_sprite;
 
-typedef struct			s_draw
+typedef struct s_draw
 {
 	double				transformx;
 	double				transformy;
@@ -48,7 +48,7 @@ typedef struct			s_draw
 	int					texy;
 }						t_draw;
 
-typedef struct			s_varlist
+typedef struct s_varlist
 {
 	mlx_t				*mlx;
 	mlx_image_t			*img;
@@ -155,7 +155,7 @@ int			ft_floodfill(t_varlist vl);
 // INPUT
 void		ft_processinput(t_varlist *vl);
 void		ft_processturn(t_varlist *vl, double rotspeed);
-void		ft_processmove(t_varlist *vl, double movspd, double movy, double movx);
+void		ft_processmove(t_varlist *vl, double mvs, double mvy, double mvx);
 void		ft_processacro(t_varlist *vl, double movespeed);
 void		ft_processguns(t_varlist *vl);
 void		keyhook(mlx_key_data_t kd, void *param);
