@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 06:17:34 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 00:58:34 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void		ft_firebullet(t_varlist *vl);
 void		ft_animateenemies(t_varlist *vl);
 void		ft_fireweapon(t_varlist *vl);
 void		ft_drawminimap(t_varlist *vl);
+void		ft_interact(t_varlist *vl);
 void		ft_checkhealth(t_varlist *vl);
 void		ft_finish(t_varlist *vl);
 // PARSE
@@ -144,7 +145,7 @@ int			ft_floodfill(t_varlist vl);
 // INPUT
 void		ft_processinput(t_varlist *vl);
 void		ft_processturn(t_varlist *vl, double rotspeed);
-void		ft_processmove(t_varlist *vl, double movespeed);
+void		ft_processmove(t_varlist *vl, double movspd, double movy, double movx);
 void		ft_processacro(t_varlist *vl, double movespeed);
 void		ft_processguns(t_varlist *vl);
 void		keyhook(mlx_key_data_t kd, void *param);

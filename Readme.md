@@ -52,9 +52,7 @@ Cub3D is a simple raycasting game using the mlx library
 
 ---
 ## Bugs
-- Player can get too close to walls
-- Player walks twice as fast when holding W and A or W and D
-
+- none?
 ---
 ## Usage
 1. Simply clone or download the repository

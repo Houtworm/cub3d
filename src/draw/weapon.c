@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 23:44:25 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 00:59:42 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_drawknife(t_varlist *vl)
 {
-	int				x;
-	int				y;
-	int				i;
+	int			x;
+	int			y;
+	int			i;
 	uint32_t	color;
 
 	x = 0;
@@ -39,9 +39,9 @@ void	ft_drawknife(t_varlist *vl)
 
 void	ft_drawpistol(t_varlist *vl)
 {
-	int				x;
-	int				y;
-	int				i;
+	int			x;
+	int			y;
+	int			i;
 	uint32_t	color;
 
 	x = 0;
@@ -64,9 +64,9 @@ void	ft_drawpistol(t_varlist *vl)
 
 void	ft_drawmgun(t_varlist *vl)
 {
-	int				x;
-	int				y;
-	int				i;
+	int			x;
+	int			y;
+	int			i;
 	uint32_t	color;
 
 	x = 0;
@@ -89,9 +89,9 @@ void	ft_drawmgun(t_varlist *vl)
 
 void	ft_drawggun(t_varlist *vl)
 {
-	int				x;
-	int				y;
-	int				i;
+	int			x;
+	int			y;
+	int			i;
 	uint32_t	color;
 
 	x = 0;

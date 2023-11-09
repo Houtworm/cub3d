@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/08 04:45:10 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/09 01:00:33 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC			=src/main/main.c\
 			 src/main/minimap.c\
 			 src/main/died.c\
 			 src/main/finish.c\
+			 src/main/interact.c\
 			 src/parse/parse.c\
 			 src/parse/map.c\
 			 src/parse/sprite.c\

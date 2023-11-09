@@ -6,31 +6,11 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 07:11:48 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 00:54:39 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
-
-int	ft_getscore(t_varlist *vl)
-{
-	int		score;
-
-	score = (vl->treasure * 10000) + (vl->kills * 1000);
-	score = score + (vl->ammo * 100) + (vl->hp * 100);
-	score = score - (vl->tottime * 10);
-	if (vl->enemies == vl->kills)
-		score = score + 50000;
-	if (vl->treasure == vl->tottreasure)
-		score = score + 50000;
-	if (vl->hp >= 100)
-		score = score + 10000;
-	if (vl->ammo >= 100)
-		score = score + 10000;
-	if (vl->tottime < 180)
-		score = score + 50000;
-	return (score);
-}
 
 void	ft_printstats1(t_varlist *vl)
 {
@@ -70,13 +50,33 @@ void	ft_printstats2(t_varlist *vl)
 	ft_vafree(2, temp, current);
 }
 
+void	ft_printscore(t_varlist *vl)
+{
+	int		score;
+
+	score = (vl->treasure * 10000) + (vl->kills * 1000);
+	score = score + (vl->ammo * 100) + (vl->hp * 100);
+	score = score - (vl->tottime * 10);
+	if (vl->enemies == vl->kills)
+		score = score + 50000;
+	if (vl->treasure == vl->tottreasure)
+		score = score + 50000;
+	if (vl->hp >= 100)
+		score = score + 10000;
+	if (vl->ammo >= 100)
+		score = score + 10000;
+	if (vl->tottime < 180)
+		score = score + 50000;
+	ft_putstr("Total Score: ");
+	ft_putnbr(score);
+	ft_putendl("");
+}
+
 void	ft_finish(t_varlist *vl)
 {
 	ft_printstats1(vl);
 	ft_printstats2(vl);
-	ft_putstr("Total Score: ");
-	ft_putnbr(ft_getscore(vl));
-	ft_putendl("");
+	ft_printscore(vl);
 	mlx_close_window(vl->mlx);
 	return ;
 }
