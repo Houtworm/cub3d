@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 20:36:29 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 23:38:57 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_drawminimap(t_varlist *vl)
 					mlx_put_pixel(vl->mimg, x, y, 0xFFFF00FF);
 				else if (mapy < 0 || mapx < 0)
 					mlx_put_pixel(vl->mimg, x, y, 0xFFFFFF00);
-				else if (vl->mapsizey + 1 < mapy || vl->mapsizex + 1 < mapx)
+				else if (vl->mapsizey < mapy || vl->mapsizex < mapx)
 					mlx_put_pixel(vl->mimg, x, y, 0xFFFFFF00);
 				else if (vl->map[mapy][mapx] == '0')
 					mlx_put_pixel(vl->mimg, x, y, 0x646464FF);

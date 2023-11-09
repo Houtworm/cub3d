@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:28:25 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 23:38:43 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,11 +140,13 @@ char	**ft_getmap(t_varlist *vl, int fd)
 				map[y][x] = '4';
 			else
 				ft_errorexit("Invalid character on the map", "", 1);
-			vl->mapsizex = x - 1;
+			if (x > vl->mapsizex)
+				vl->mapsizex = x;
 			x++;
 		}
 		free(line);
-		vl->mapsizey = y - 1;
+		if (y > vl->mapsizey)
+			vl->mapsizey = y;
 		y++;
 	}
 	ft_errorexit("Something went wrong", "ft_getmap", 1);
