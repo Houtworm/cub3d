@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 09:00:42 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 20:26:50 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_initsprites(t_varlist *vl)
 	vl->decotext[9] = mlx_load_png("./assets/decoration/hskel.png");
 	vl->decotext[10] = mlx_load_png("./assets/decoration/hlamp.png");
 	vl->decotext[11] = mlx_load_png("./assets/decoration/chandel.png");
+	vl->decotext[12] = mlx_load_png("./assets/decoration/rubble.png");
 }
 
 void	ft_initpickups(t_varlist *vl)

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/07 22:25:39 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 20:24:57 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_animateenemies(t_varlist *vl)
 	i = 0;
 	while (vl->spritecount > i)
 	{
-		if (vl->sprite[i].status)
+		if (vl->sprite[i].status && vl->sprite[i].type == 3)
 		{
 			if (vl->sprite[i].status == 1)
 			{
