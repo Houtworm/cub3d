@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:40:31 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 19:49:22 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,19 @@ void	ft_restartgame(t_varlist *vl)
 	*vl = ft_parseconfigfile(*vl, vl->cubfile);
 }
 
+void	ft_imagetowindow(t_varlist *vl)
+{
+	if (!vl->img || (mlx_image_to_window(vl->mlx, vl->img, 0, 0) < 0))
+		ft_errorexit("image to window failed ", "mainloop", 1);
+	mlx_set_instance_depth(vl->img->instances, 1);
+}
+
 void	mainloop(void *param)
 {
 	t_varlist	*vl;
 
 	vl = param;
+	ft_processinput(vl);
 	if (vl->menu == 0)
 	{
 		ft_replaceimage(vl);
@@ -79,13 +87,10 @@ void	mainloop(void *param)
 			ft_youdied(vl);
 		ft_timers(vl);
 		ft_printstats(vl);
-		if (!vl->img || (mlx_image_to_window(vl->mlx, vl->img, 0, 0) < 0))
-			ft_errorexit("image to window failed ", "mainloop", 1);
-		mlx_set_instance_depth(vl->img->instances, 1);
+		ft_imagetowindow(vl);
 	}
 	else if (vl->menu == 3)
 		ft_restartgame(vl);
-	ft_processinput(vl);
 }
 
 int	main(int argc, char **argv)

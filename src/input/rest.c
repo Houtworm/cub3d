@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 03:12:20 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 19:25:18 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	ft_processguns(t_varlist *vl)
 			vl->reloadtime = 0.05;
 		}
 	}
-	if (mlx_is_mouse_down(vl->mlx, MLX_MOUSE_BUTTON_RIGHT))
-		ft_putendl("zoom");
 }
 
 void	ft_nextweapon(t_varlist *vl)

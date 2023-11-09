@@ -6,7 +6,6 @@ Cub3D is a simple raycasting game using the mlx library
 ### Bonus
 - Doors
 ### Extra
-- Zoom with right mouse button
 - Moving Enemies
 
 ---
