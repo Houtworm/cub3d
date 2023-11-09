@@ -6,13 +6,13 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/09 01:00:33 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/09 07:41:22 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=cub3d
 CC			=gcc
-FC			=-Wall -Werror -Wextra -Wunreachable-code -flto -Ofast -march=native -g #-fsanitize=address
+FC			=-Wall -Werror -Wextra -Wunreachable-code -flto -Ofast -march=native -g -fsanitize=address
 HEAD		=-I ./include -I $(MLX)/include
 RM			=rm -rf
 LIB			=libft/libft.a getnextline/get_next_line.a mlx/build/libmlx42.a -ldl -lglfw -pthread -lm
@@ -25,7 +25,6 @@ SRC			=src/main/main.c\
 			 src/main/fire.c\
 			 src/main/enemy.c\
 			 src/main/minimap.c\
-			 src/main/died.c\
 			 src/main/finish.c\
 			 src/main/interact.c\
 			 src/parse/parse.c\

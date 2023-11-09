@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 02:33:58 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:24:15 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,25 @@ void	ft_timers(t_varlist *vl)
 
 void	ft_restartgame(t_varlist *vl)
 {
-	// free some stuff first
+	int	i;
+
+	i = 0;
+	while (i < 8)
+	{
+		mlx_delete_image(vl->mlx, vl->mstat[i]);
+		i++;
+	}
+	mlx_delete_texture(vl->walltext[0]);
+	mlx_delete_texture(vl->walltext[1]);
+	mlx_delete_texture(vl->walltext[2]);
+	mlx_delete_texture(vl->walltext[3]);
+	mlx_delete_texture(vl->elevtext[0]);
+	free(vl->distance);
+	free(vl->sprite);
+	free(vl->walltext);
+	free(vl->elevtext);
+	free(vl->mstat);
+	ft_frearr(vl->map);
 	ft_initmainstuff(vl);
 	*vl = ft_parseconfigfile(*vl, vl->cubfile);
 }
@@ -58,7 +76,8 @@ void	mainloop(void *param)
 		ft_drawweapon(vl);
 		ft_fireweapon(vl);
 		ft_drawminimap(vl);
-		ft_checkhealth(vl);
+		if (vl->hp <= 0)
+			ft_youdied(vl);
 		ft_timers(vl);
 		ft_printstats(vl);
 		if (!vl->img || (mlx_image_to_window(vl->mlx, vl->img, 0, 0) < 0))
@@ -81,7 +100,7 @@ int	main(int argc, char **argv)
 		vl = ft_parseconfigfile(vl, argv[1]);
 	else
 		ft_errorexit("Please include a .cub file ", "", 2);
-	vl.backupmap = vl.map;
+	vl.cubfile = ft_strdup(argv[1]);
 	if (ft_floodfill(vl))
 		ft_errorexit("map is invalid", "floodfill", 1);
 	if (!vl.img || (mlx_image_to_window(vl.mlx, vl.img, 0, 0) < 0))

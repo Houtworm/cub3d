@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 04:44:42 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 07:44:39 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_floodfill(t_varlist vl)
 	y = (int)vl.posy;
 	x = (int)vl.posx;
 	fillmap[y][x] = '1';
-	if (ft_flood(vl, fillmap, x, y))
-		return (1);
-	return (0);
+	x = ft_flood(vl, fillmap, x, y);
+	ft_frearr(fillmap);
+	return (x);
 }

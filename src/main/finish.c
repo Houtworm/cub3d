@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 03:02:32 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:04:41 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	ft_printscore(t_varlist *vl)
 		score = score + 50000;
 	if (vl->hp >= 100)
 		score = score + 10000;
+	if (vl->hp <= 0)
+		score = score - 100000;
 	if (vl->ammo >= 100)
 		score = score + 10000;
 	if (vl->tottime < 180)
@@ -76,6 +78,7 @@ void	ft_printscore(t_varlist *vl)
 	scor = ft_itoa(score);
 	temp = ft_strjoin("Total Score ", scor);
 	vl->mstat[6] = mlx_put_string(vl->mlx, temp, vl->w / 2 - 150, 430);
+	ft_vafree(2, scor, temp);
 	mlx_resize_image(vl->mstat[6], 300, 50);
 	vl->mstat[7] = mlx_put_string(vl->mlx, "Press Jump to restart", vl->w / 2 - 200, 480);
 	mlx_resize_image(vl->mstat[7], 400, 50);
@@ -107,7 +110,6 @@ void	ft_finish(t_varlist *vl)
 	ft_printstats2(vl);
 	ft_printscore(vl);
 	vl->menu = 1;
-	return ;
 }
 
 void	ft_youdied(t_varlist *vl)

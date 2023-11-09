@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 05:05:50 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:26:24 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_getmap(t_varlist *vl, int fd)
 		}
 		if (ret == 0)
 		{
-			free(map[y]);
+			/*free(map[y]);*/
 			return (map);
 		}
 		x = 0;

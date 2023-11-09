@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:48:55 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 02:30:50 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:21:31 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
 	char	*line;
 	char	*error;
 
-	vl.cubfile = ft_strdup(filename);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		ft_errorexit("file does not exist", "parseconfigfile", 1);

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 08:40:06 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:12:34 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 
 void	ft_cleanup(t_varlist *vl)
 {
+	int	i;
+
+	i = 0;
+	if (vl->menu)
+	{
+		while (i < 8)
+		{
+			mlx_delete_image(vl->mlx, vl->mstat[i]);
+			i++;
+		}
+		free(vl->mstat);
+	}
 	mlx_delete_texture(vl->walltext[0]);
 	mlx_delete_texture(vl->walltext[1]);
 	mlx_delete_texture(vl->walltext[2]);
