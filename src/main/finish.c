@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:04:41 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:34:24 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	ft_finish(t_varlist *vl)
 
 	x = 0;
 	y = 0;
+	vl->oimg = mlx_new_image(vl->mlx, vl->w, vl->h);
 	while (y < vl->h)
 	{
 		while (x < vl->w)
@@ -119,6 +120,7 @@ void	ft_youdied(t_varlist *vl)
 
 	x = 0;
 	y = 0;
+	vl->oimg = mlx_new_image(vl->mlx, vl->w, vl->h);
 	while (y < vl->h)
 	{
 		while (x < vl->w)

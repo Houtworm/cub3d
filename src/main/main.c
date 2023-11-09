@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:24:15 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:40:31 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	ft_replaceimage(t_varlist *vl)
 	mlx_delete_image(vl->mlx, vl->hstat);
 	mlx_delete_image(vl->mlx, vl->wimg);
 	mlx_delete_image(vl->mlx, vl->mimg);
-	mlx_delete_image(vl->mlx, vl->oimg);
 	vl->img = mlx_new_image(vl->mlx, vl->w, vl->h);
-	vl->oimg = mlx_new_image(vl->mlx, vl->w, vl->h);
 	vl->wimg = mlx_new_image(vl->mlx, 64, 64);
 	vl->mimg = mlx_new_image(vl->mlx, 22, 22);
 }
@@ -46,6 +44,7 @@ void	ft_restartgame(t_varlist *vl)
 		mlx_delete_image(vl->mlx, vl->mstat[i]);
 		i++;
 	}
+	mlx_delete_image(vl->mlx, vl->oimg);
 	mlx_delete_texture(vl->walltext[0]);
 	mlx_delete_texture(vl->walltext[1]);
 	mlx_delete_texture(vl->walltext[2]);

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 02:25:58 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:40:37 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void	ft_initmainstuff(t_varlist *vl)
 	vl->walltext[1] = NULL;
 	vl->walltext[2] = NULL;
 	vl->walltext[3] = NULL;
+	vl->tottime = 0;
 }
 
 t_varlist	initgame(void)

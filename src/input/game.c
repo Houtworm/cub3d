@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 03:20:59 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:39:42 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,23 @@ void	keyhook(mlx_key_data_t kd, void *param)
 	t_varlist	*vl;
 
 	vl = param;
-	vl->w = vl->w;
 	if (mlx_is_key_down(vl->mlx, MLX_KEY_ESCAPE))
 	{
 		ft_putendl("escape is pressed");
 		mlx_close_window(vl->mlx);
 		return ;
 	}
-	if ((kd.key == MLX_KEY_H || kd.key == MLX_KEY_F1) && kd.action == MLX_PRESS)
-		ft_putendl("H is pressed");
-	if (kd.key == MLX_KEY_M && kd.action == MLX_PRESS)
-		vl->minimap++;
-	if (kd.key == MLX_KEY_N && kd.action == MLX_PRESS)
-		vl->stats++;
-	if (kd.key == MLX_KEY_F && kd.action == MLX_PRESS)
-		ft_interact(vl);
+	if (vl->menu == 0)
+	{
+		if ((kd.key == MLX_KEY_H || kd.key == MLX_KEY_F1) && kd.action == MLX_PRESS)
+			ft_putendl("H is pressed");
+		if (kd.key == MLX_KEY_M && kd.action == MLX_PRESS)
+			vl->minimap++;
+		if (kd.key == MLX_KEY_N && kd.action == MLX_PRESS)
+			vl->stats++;
+		if (kd.key == MLX_KEY_F && kd.action == MLX_PRESS)
+			ft_interact(vl);
+	}
 }
 
 void	resizehook(int x, int y, void *param)

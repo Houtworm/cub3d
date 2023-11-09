@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:26:24 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/09 08:28:25 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ char	**ft_getmap(t_varlist *vl, int fd)
 			free(line);
 		}
 		if (ret == 0)
-		{
-			/*free(map[y]);*/
 			return (map);
-		}
 		x = 0;
 		while (x <= 1024 && line[x])
 		{
@@ -142,12 +139,7 @@ char	**ft_getmap(t_varlist *vl, int fd)
 			else if (line[x] == 'X')
 				map[y][x] = '4';
 			else
-			{
-				ft_putstr("Invalid character on the map\n Valid options are\n");
-				ft_putstr("NESW Player\n' ' or 0 empty space\n1 wall\n");
-				ft_putstr("D Door\nC Collectible\nB Barrel\nX Level end\n");
-				ft_errorexit("K Enemy\nG groundlamp\nH Hanglamp", "", 1);
-			}
+				ft_errorexit("Invalid character on the map", "", 1);
 			vl->mapsizex = x - 1;
 			x++;
 		}
