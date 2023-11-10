@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   check.c                                            :+:    :+:            */
+/*   sprite1.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 05:42:09 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 07:28:32 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,27 +62,27 @@ t_draw	*ft_initdrawsprite(t_varlist *vl, int i)
 	spritex = vl->sprite[i].x - vl->posx;
 	spritey = vl->sprite[i].y - vl->posy;
 	invdet = 1.0 / (vl->planex * vl->diry - vl->dirx * vl->planey);
-	d->transformx = invdet * (vl->diry * spritex - vl->dirx * spritey);
-	d->transformy = invdet * (-vl->planey * spritex + vl->planex * spritey);
-	d->spritescreen = (vl->w / 2) * (1 + d->transformx / d->transformy);
-	d->vmovescreen = vl->vaim + vl->jump / d->transformy;
-	d->spriteheight = fabs((vl->h / d->transformy));
+	d->tfx = invdet * (vl->diry * spritex - vl->dirx * spritey);
+	d->tfy = invdet * (-vl->planey * spritex + vl->planex * spritey);
+	d->sprs = (vl->w / 2) * (1 + d->tfx / d->tfy);
+	d->vmov = vl->vaim + vl->jump / d->tfy;
+	d->sprh = fabs((vl->h / d->tfy));
 	return (d);
 }
 
 void	ft_getdrawstartend(t_varlist *vl, t_draw *draw)
 {
-	draw->drawstarty = -draw->spriteheight / 2 + vl->h / 2 + draw->vmovescreen;
+	draw->drawstarty = -draw->sprh / 2 + vl->h / 2 + draw->vmov;
 	if (draw->drawstarty < 0)
 		draw->drawstarty = 0;
-	draw->drawendy = draw->spriteheight / 2 + vl->h / 2 + draw->vmovescreen;
+	draw->drawendy = draw->sprh / 2 + vl->h / 2 + draw->vmov;
 	if (draw->drawendy >= vl->h)
 		draw->drawendy = vl->h - 1;
-	draw->spritewidth = abs((int)(vl->h / draw->transformy));
-	draw->drawstartx = -draw->spritewidth / 2 + draw->spritescreen;
+	draw->sprw = abs((int)(vl->h / draw->tfy));
+	draw->drawstartx = -draw->sprw / 2 + draw->sprs;
 	if (draw->drawstartx < 0)
 		draw->drawstartx = 0;
-	draw->drawendx = draw->spritewidth / 2 + draw->spritescreen;
+	draw->drawendx = draw->sprw / 2 + draw->sprs;
 	if (draw->drawendx >= vl->w)
 		draw->drawendx = vl->w - 1;
 }

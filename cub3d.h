@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 06:14:04 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 07:27:56 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ typedef struct s_sprite
 
 typedef struct s_draw
 {
-	double				transformx;
-	double				transformy;
-	int					spritescreen;
-	int					vmovescreen;
-	int					spriteheight;
-	int					spritewidth;
+	double				tfx;
+	double				tfy;
+	int					sprs;
+	int					vmov;
+	int					sprh;
+	int					sprw;
 	int					drawstarty;
 	int					drawstartx;
 	int					drawendy;
 	int					drawendx;
-	int					texx;
-	int					texy;
+	int					x;
+	int					y;
 }						t_draw;
 
 typedef struct s_varlist
