@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 05:30:13 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 05:45:45 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ typedef struct s_varlist
 	int					w;
 	int					h;
 	char				**map;
-	char				**backupmap;
 	int					mapsizey;
 	int					mapsizex;
 	double				frametime;
@@ -135,12 +134,8 @@ t_varlist	initgame(void);
 int			ft_errorexit(char *reason, char *function, int code);
 void		ft_printstats(t_varlist *vl);
 void		ft_cleanup(t_varlist *vl);
-void		ft_firebullet(t_varlist *vl);
-void		ft_animateenemies(t_varlist *vl);
-void		ft_fireweapon(t_varlist *vl);
-void		ft_interact(t_varlist *vl);
-void		ft_checkhealth(t_varlist *vl);
 void		ft_initmainstuff(t_varlist *vl);
+void		ft_raycast(t_varlist *vl, int x);
 int			ft_prepcast(t_varlist *vl, int x);
 int			ft_getstepx(t_varlist *vl, int mapx);
 int			ft_getstepy(t_varlist *vl, int mapy);
@@ -164,19 +159,21 @@ void		scrollhook(double xdelta, double ydelta, void *param);
 void		resizehook(int x, int y, void *param);
 void		cursorhook(double x, double y, void *param);
 // DRAW
-void		ft_raycast(t_varlist *vl, int x);
 void		ft_drawmap(t_varlist *vl);
 void		ft_drawweapon(t_varlist *vl);
+void		ft_drawsprite(t_varlist *vl, t_draw *draw, int x, int i);
+void		ft_drawsprites(t_varlist *vl);
 int			ft_gettextx(t_varlist *vl);
 uint32_t	ft_gettextcolor(mlx_texture_t *texture, int texty, int textx);
 void		ft_flashscreen(t_varlist *vl, int x, int y, uint32_t color);
 void		ft_drawminimap(t_varlist *vl);
 void		ft_finish(t_varlist *vl);
 void		ft_youdied(t_varlist *vl);
-// SPRITE
-void		ft_drawsprite(t_varlist *vl, t_draw *draw, int x, int i);
-t_draw		*ft_initdrawsprite(t_varlist *vl, int i);
-void		ft_getdrawstartend(t_varlist *vl, t_draw *draw);
-void		ft_drawsprites(t_varlist *vl);
+// ACTION
 void		ft_checkpickup(t_varlist *vl);
+void		ft_firebullet(t_varlist *vl);
+void		ft_animateenemies(t_varlist *vl);
+void		ft_fireweapon(t_varlist *vl);
+void		ft_interact(t_varlist *vl);
+void		ft_checkhealth(t_varlist *vl);
 #endif

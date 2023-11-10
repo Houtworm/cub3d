@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 05:31:05 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 06:01:44 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,37 @@ void	ft_killnazi(t_varlist *vl, int mapx, int mapy)
 	}
 }
 
+int	ft_checkifhit(t_varlist *vl, int mapx, int mapy)
+{
+	if (vl->map[mapx][mapy] == '3' || vl->map[mapx][mapy] == '2')
+	{
+		ft_killnazi(vl, mapx, mapy);
+		return (1);
+	}
+	if (vl->map[mapx][mapy] == '1' || vl->map[mapx][mapy] == '4')
+		return (1);
+	if (vl->weapon == 0)
+		return (1);
+	return (0);
+}
+
+int	ft_travelstep(t_varlist *vl, int map, int step, int xy)
+{
+	if (xy == 1)
+	{
+		vl->sidedistx += vl->deltadistx;
+		map += step;
+		vl->side = 0;
+	}
+	else
+	{
+		vl->sidedisty += vl->deltadisty;
+		map += step;
+		vl->side = 1;
+	}
+	return (map);
+}
+
 void	ft_firebullet(t_varlist *vl)
 {
 	int		hit;
@@ -49,29 +80,13 @@ void	ft_firebullet(t_varlist *vl)
 	hit = ft_prepcast(vl, vl->w / 2);
 	stepx = ft_getstepx(vl, mapx);
 	stepy = ft_getstepy(vl, mapy);
-	while (hit == 0)
+	while (!hit)
 	{
 		if (vl->sidedistx < vl->sidedisty)
-		{
-			vl->sidedistx += vl->deltadistx;
-			mapx += stepx;
-			vl->side = 0;
-		}
+			mapx = ft_travelstep(vl, mapx, stepx, 1);
 		else
-		{
-			vl->sidedisty += vl->deltadisty;
-			mapy += stepy;
-			vl->side = 1;
-		}
-		if (vl->map[mapx][mapy] == '3' || vl->map[mapx][mapy] == '2')
-		{
-			ft_killnazi(vl, mapx, mapy);
-			return ;
-		}
-		if (vl->map[mapx][mapy] == '1' || vl->map[mapx][mapy] == '4')
-			return ;
-		if (vl->weapon == 0)
-			return ;
+			mapy = ft_travelstep(vl, mapy, stepy, 2);
+		hit = ft_checkifhit(vl, mapx, mapy);
 	}
 }
 

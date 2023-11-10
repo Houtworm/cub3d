@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/10 05:30:35 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/10 05:47:08 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC			=src/main/main.c\
 			 src/input/move.c\
 			 src/input/turn.c\
 			 src/input/acro.c\
-			 src/input/mouse.c\
+			 src/input/guns.c\
 			 src/sprite/check.c\
 			 src/sprite/sprite.c
 OBJ			=$(SRC:src/%.c=obj/%.o)
