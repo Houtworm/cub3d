@@ -1,62 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   bullet.c                                           :+:    :+:            */
+/*   fire.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 20:28:56 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 05:31:05 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
-
-int	ft_getstepxbullet(t_varlist *vl, int mapx)
-{
-	int	stepx;
-
-	if (vl->raydirx < 0)
-	{
-		stepx = -1;
-		vl->sidedistx = (vl->posx - mapx) * vl->deltadistx;
-	}
-	else
-	{
-		stepx = 1;
-		vl->sidedistx = (mapx + 1.0 - vl->posx) * vl->deltadistx;
-	}
-	return (stepx);
-}
-
-int	ft_getstepybullet(t_varlist *vl, int mapy)
-{
-	int	stepy;
-
-	if (vl->raydiry < 0)
-	{
-		stepy = -1;
-		vl->sidedisty = (vl->posy - mapy) * vl->deltadisty;
-	}
-	else
-	{
-		stepy = 1;
-		vl->sidedisty = (mapy + 1.0 - vl->posy) * vl->deltadisty;
-	}
-	return (stepy);
-}
-
-int	ft_prepbullet(t_varlist *vl, int x)
-{
-	double	camerax;
-
-	camerax = 2 * x / (double)vl->w - 1;
-	vl->raydirx = vl->dirx + vl->planex * camerax;
-	vl->raydiry = vl->diry + vl->planey * camerax;
-	vl->deltadistx = fabs(1 / vl->raydirx);
-	vl->deltadisty = fabs(1 / vl->raydiry);
-	return (0);
-}
 
 void	ft_killnazi(t_varlist *vl, int mapx, int mapy)
 {
@@ -92,9 +46,9 @@ void	ft_firebullet(t_varlist *vl)
 
 	mapx = (int)vl->posx;
 	mapy = (int)vl->posy;
-	hit = ft_prepbullet(vl, vl->w / 2);
-	stepx = ft_getstepxbullet(vl, mapx);
-	stepy = ft_getstepybullet(vl, mapy);
+	hit = ft_prepcast(vl, vl->w / 2);
+	stepx = ft_getstepx(vl, mapx);
+	stepy = ft_getstepy(vl, mapy);
 	while (hit == 0)
 	{
 		if (vl->sidedistx < vl->sidedisty)
@@ -118,5 +72,25 @@ void	ft_firebullet(t_varlist *vl)
 			return ;
 		if (vl->weapon == 0)
 			return ;
+	}
+}
+
+void	ft_fireweapon(t_varlist *vl)
+{
+	if (vl->reload)
+	{
+		if (vl->tottime - vl->firetime > vl->reloadtime)
+		{
+			vl->firetime = vl->tottime;
+			vl->reload++;
+			if (vl->reload == 2)
+			{
+				if (vl->weapon)
+					vl->ammo--;
+				ft_firebullet(vl);
+			}
+			if (vl->reload > 4)
+				vl->reload = 0;
+		}
 	}
 }

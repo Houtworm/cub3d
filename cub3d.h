@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 03:00:30 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 05:30:13 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,12 +138,12 @@ void		ft_cleanup(t_varlist *vl);
 void		ft_firebullet(t_varlist *vl);
 void		ft_animateenemies(t_varlist *vl);
 void		ft_fireweapon(t_varlist *vl);
-void		ft_drawminimap(t_varlist *vl);
 void		ft_interact(t_varlist *vl);
 void		ft_checkhealth(t_varlist *vl);
-void		ft_finish(t_varlist *vl);
-void		ft_youdied(t_varlist *vl);
 void		ft_initmainstuff(t_varlist *vl);
+int			ft_prepcast(t_varlist *vl, int x);
+int			ft_getstepx(t_varlist *vl, int mapx);
+int			ft_getstepy(t_varlist *vl, int mapy);
 // PARSE
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
 char		**ft_getmap(t_varlist *vl, int fd);
@@ -170,6 +170,9 @@ void		ft_drawweapon(t_varlist *vl);
 int			ft_gettextx(t_varlist *vl);
 uint32_t	ft_gettextcolor(mlx_texture_t *texture, int texty, int textx);
 void		ft_flashscreen(t_varlist *vl, int x, int y, uint32_t color);
+void		ft_drawminimap(t_varlist *vl);
+void		ft_finish(t_varlist *vl);
+void		ft_youdied(t_varlist *vl);
 // SPRITE
 void		ft_drawsprite(t_varlist *vl, t_draw *draw, int x, int i);
 t_draw		*ft_initdrawsprite(t_varlist *vl, int i);
