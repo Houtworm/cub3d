@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 07:49:27 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 08:28:49 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ typedef struct s_varlist
 	mlx_texture_t		**elevtext;
 	mlx_texture_t		**decotext;
 	mlx_texture_t		**picktext;
-	mlx_texture_t		**gidletext;
 	mlx_texture_t		**gspottext;
 	mlx_texture_t		**gdeadtext;
 	mlx_texture_t		**gun0text;
@@ -143,6 +142,8 @@ int			ft_getstepy(t_varlist *vl, int mapy);
 // PARSE
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
 char		**ft_getmap(t_varlist *vl, int fd);
+char		ft_checkmapelement(t_varlist *vl, char element, int x, int y);
+char		ft_initplayer(t_varlist *vl, char dir, int x, int y);
 char		ft_addwalktroughdecor(t_varlist *vl, int x, int y, int number);
 char		ft_addsoliddecor(t_varlist *vl, int x, int y, int number);
 char		ft_addpickup(t_varlist *vl, int x, int y, int number);

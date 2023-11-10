@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 07:28:32 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 08:07:36 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ mlx_texture_t	*ft_getsprite(t_varlist *vl, int i)
 		return (vl->decotext[12]);
 	if (vl->sprite[i].type == 2 && vl->sprite[i].status == 0)
 		return (vl->picktext[vl->sprite[i].number]);
-	if (vl->sprite[i].type == 3 && vl->sprite[i].status == 0)
-		return (vl->gidletext[vl->sprite[i].number]);
-	if (vl->sprite[i].type == 3 && vl->sprite[i].status == 1)
+	if (vl->sprite[i].type == 3 && vl->sprite[i].status < 2)
 		return (vl->gspottext[vl->sprite[i].number]);
 	return (vl->gdeadtext[vl->sprite[i].number]);
 }

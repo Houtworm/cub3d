@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 07:50:12 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 08:06:21 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	ft_initpickups(t_varlist *vl)
 
 void	ft_initenemies(t_varlist *vl)
 {
-	vl->gidletext = ft_calloc(4096, 8);
-	vl->gidletext[0] = mlx_load_png("./assets/nazi/guard/guard1.png");
 	vl->gspottext = ft_calloc(4096, 8);
 	vl->gspottext[0] = mlx_load_png("./assets/nazi/guard/fire1.png");
 	vl->gspottext[1] = mlx_load_png("./assets/nazi/guard/fire2.png");
@@ -104,6 +102,5 @@ t_varlist	initgame(void)
 	vl.mlx = mlx_init(vl.w, vl.h, "Cub3D", true);
 	if (!vl.mlx)
 		ft_errorexit("MLX failed to init", "initvarlist", 1);
-	vl.img = mlx_new_image(vl.mlx, vl.w, vl.h);
 	return (vl);
 }

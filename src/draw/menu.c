@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 02:50:00 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 08:12:48 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,10 @@ int	ft_getscore(t_varlist *vl)
 		score = score + 10000;
 	if (vl->tottime < 180)
 		score = score + 50000;
+	if (vl->minimap)
+		score = score - 50000;
+	if (vl->stats)
+		score = score - 50000;
 	return (score);
 }
 
