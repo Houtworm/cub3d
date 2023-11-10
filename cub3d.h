@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 09:10:53 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 10:40:12 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ typedef struct s_varlist
 	double				sidedisty;
 	double				deltadistx;
 	double				deltadisty;
-	double				walldist;
-	int					lineheight;
+	double				wdist;
+	int					lineh;
 	int					side;
 	double				oldmouseposx;
 	double				oldmouseposy;

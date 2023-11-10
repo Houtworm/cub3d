@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 09:12:18 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 10:41:37 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	ft_gettextx(t_varlist *vl)
 	int		textx;
 
 	if (vl->side == 0)
-		wallx = vl->posy + vl->walldist * vl->raydiry;
+		wallx = vl->posy + vl->wdist * vl->raydiry;
 	else
-		wallx = vl->posx + vl->walldist * vl->raydirx;
+		wallx = vl->posx + vl->wdist * vl->raydirx;
 	ft_selecttexture(vl);
 	wallx -= floor(wallx);
 	textx = wallx * 64.0;
