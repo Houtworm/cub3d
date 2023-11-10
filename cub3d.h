@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 07:27:56 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 07:49:27 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,8 @@ t_varlist	initgame(void);
 int			ft_errorexit(char *reason, char *function, int code);
 void		ft_printstats(t_varlist *vl);
 void		ft_cleanup(t_varlist *vl);
-void		ft_initmainstuff(t_varlist *vl);
+void		ft_resetvars(t_varlist *vl);
+void		ft_restartgame(t_varlist *vl);
 void		ft_raycast(t_varlist *vl, int x);
 int			ft_prepcast(t_varlist *vl, int x);
 int			ft_getstepx(t_varlist *vl, int mapx);

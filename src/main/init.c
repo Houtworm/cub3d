@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 22:05:30 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 07:50:12 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,48 +92,11 @@ void	ft_initweapons(t_varlist *vl)
 	vl->gun3text[4] = mlx_load_png("./assets/weapon/ggun/5.png");
 }
 
-void	ft_initmainstuff(t_varlist *vl)
-{
-	vl->elevtext = ft_calloc(4096, 8);
-	vl->elevtext[0] = mlx_load_png("./assets/wall/elevator.png");
-	vl->w = 800;
-	vl->h = 600;
-	vl->sprite = ft_calloc(4096, 8);
-	vl->spritecount = 0;
-	vl->distance = ft_calloc(4096, 8);
-	vl->walltext = ft_calloc(4096, 8);
-	vl->vaim = 0;
-	vl->jump = 0;
-	vl->treasure = 0;
-	vl->tottreasure = 0;
-	vl->enemies = 0;
-	vl->kills = 0;
-	vl->mgun = 0;
-	vl->ggun = 0;
-	vl->ammo = 10;
-	vl->hp = 100;
-	vl->weapon = 1;
-	vl->reloadtime = 0.1;
-	vl->firetime = 0;
-	vl->reload = 0;
-	vl->ccolor = 0;
-	vl->fcolor = 0;
-	vl->minimap = 0;
-	vl->stats = 0;
-	vl->menu = 0;
-	vl->flash = 0;
-	vl->walltext[0] = NULL;
-	vl->walltext[1] = NULL;
-	vl->walltext[2] = NULL;
-	vl->walltext[3] = NULL;
-	vl->tottime = 0;
-}
-
 t_varlist	initgame(void)
 {
 	t_varlist	vl;
 
-	ft_initmainstuff(&vl);
+	ft_resetvars(&vl);
 	ft_initsprites(&vl);
 	ft_initpickups(&vl);
 	ft_initenemies(&vl);

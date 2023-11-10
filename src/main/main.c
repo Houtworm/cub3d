@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 06:57:23 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 07:49:05 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,6 @@ void	ft_newframe(t_varlist *vl)
 	vl->mimg = mlx_new_image(vl->mlx, 22, 22);
 	vl->frametime = vl->mlx->delta_time;
 	vl->tottime = vl->tottime + vl->frametime;
-}
-
-void	ft_restartgame(t_varlist *vl)
-{
-	int	i;
-
-	i = 0;
-	while (i < 8)
-	{
-		mlx_delete_image(vl->mlx, vl->mstat[i]);
-		i++;
-	}
-	mlx_delete_image(vl->mlx, vl->oimg);
-	mlx_delete_texture(vl->walltext[0]);
-	mlx_delete_texture(vl->walltext[1]);
-	mlx_delete_texture(vl->walltext[2]);
-	mlx_delete_texture(vl->walltext[3]);
-	mlx_delete_texture(vl->elevtext[0]);
-	free(vl->distance);
-	free(vl->sprite);
-	free(vl->walltext);
-	free(vl->elevtext);
-	free(vl->mstat);
-	ft_frearr(vl->map);
-	ft_initmainstuff(vl);
-	*vl = ft_parseconfigfile(*vl, vl->cubfile);
 }
 
 void	ft_imagetowindow(t_varlist *vl)

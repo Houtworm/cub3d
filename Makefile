@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/10 06:55:53 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/10 07:48:29 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ RM			=rm -rf
 LIB			=libft/libft.a getnextline/get_next_line.a mlx/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRC			=src/main/main.c\
 			 src/main/init.c\
+			 src/main/reset.c\
 			 src/main/raycast.c\
 			 src/main/error.c\
 			 src/main/cleanup.c\

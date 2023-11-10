@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 07:24:55 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 07:50:38 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_drawspriteline(t_varlist *vl, t_draw *d, int y, int x)
 	uint8_t			*texel;
 	uint32_t		color;
 
-	t = (y - d->vmovescreen) * 256 - vl->h * 128 + d->sprh * 128;
+	t = (y - d->vmov) * 256 - vl->h * 128 + d->sprh * 128;
 	d->y = (t * 64) / d->sprh / 256;
 	if (d->y < 0)
 		d->y = 0;
@@ -40,7 +40,7 @@ void	ft_drawsprite(t_varlist *vl, t_draw *d, int x, int i)
 
 	while (x < d->drawendx)
 	{
-		d->x = (int)(256 * (x - (-d->sprw / 2 + d->sscr)) * 64 / d->sprw) / 256;
+		d->x = (int)(256 * (x - (-d->sprw / 2 + d->sprs)) * 64 / d->sprw) / 256;
 		if (d->tfy > 0 && x > 0 && x < vl->w && d->tfy < vl->distance[x] + 0.7)
 		{
 			if (vl->sprite[i].type == 3 && vl->sprite[i].status == 0)
