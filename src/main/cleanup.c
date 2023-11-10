@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 03:47:23 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:13:02 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,43 +34,43 @@ void	ft_deleteimages(t_varlist *vl)
 
 void	ft_deletedecor(t_varlist *vl)
 {
-	mlx_delete_texture(vl->decotext[0]);
-	mlx_delete_texture(vl->decotext[1]);
-	mlx_delete_texture(vl->decotext[2]);
-	mlx_delete_texture(vl->decotext[3]);
-	mlx_delete_texture(vl->decotext[4]);
-	mlx_delete_texture(vl->decotext[5]);
-	mlx_delete_texture(vl->decotext[6]);
-	mlx_delete_texture(vl->decotext[7]);
-	mlx_delete_texture(vl->decotext[8]);
-	mlx_delete_texture(vl->decotext[9]);
-	mlx_delete_texture(vl->decotext[10]);
-	mlx_delete_texture(vl->decotext[11]);
+	mlx_delete_texture(vl->decotxt[0]);
+	mlx_delete_texture(vl->decotxt[1]);
+	mlx_delete_texture(vl->decotxt[2]);
+	mlx_delete_texture(vl->decotxt[3]);
+	mlx_delete_texture(vl->decotxt[4]);
+	mlx_delete_texture(vl->decotxt[5]);
+	mlx_delete_texture(vl->decotxt[6]);
+	mlx_delete_texture(vl->decotxt[7]);
+	mlx_delete_texture(vl->decotxt[8]);
+	mlx_delete_texture(vl->decotxt[9]);
+	mlx_delete_texture(vl->decotxt[10]);
+	mlx_delete_texture(vl->decotxt[11]);
 }
 
 void	ft_deletewalls(t_varlist *vl)
 {
-	mlx_delete_texture(vl->walltext[0]);
-	mlx_delete_texture(vl->walltext[1]);
-	mlx_delete_texture(vl->walltext[2]);
-	mlx_delete_texture(vl->walltext[3]);
-	mlx_delete_texture(vl->elevtext[0]);
+	mlx_delete_texture(vl->walltxt[0]);
+	mlx_delete_texture(vl->walltxt[1]);
+	mlx_delete_texture(vl->walltxt[2]);
+	mlx_delete_texture(vl->walltxt[3]);
+	mlx_delete_texture(vl->elevtxt[0]);
 }
 
 void	ft_deletepickup(t_varlist *vl)
 {
-	mlx_delete_texture(vl->picktext[0]);
-	mlx_delete_texture(vl->picktext[1]);
-	mlx_delete_texture(vl->picktext[2]);
-	mlx_delete_texture(vl->picktext[3]);
-	mlx_delete_texture(vl->picktext[4]);
-	mlx_delete_texture(vl->picktext[5]);
-	mlx_delete_texture(vl->picktext[6]);
-	mlx_delete_texture(vl->picktext[7]);
-	mlx_delete_texture(vl->picktext[8]);
-	mlx_delete_texture(vl->picktext[9]);
-	mlx_delete_texture(vl->picktext[10]);
-	mlx_delete_texture(vl->picktext[11]);
+	mlx_delete_texture(vl->picktxt[0]);
+	mlx_delete_texture(vl->picktxt[1]);
+	mlx_delete_texture(vl->picktxt[2]);
+	mlx_delete_texture(vl->picktxt[3]);
+	mlx_delete_texture(vl->picktxt[4]);
+	mlx_delete_texture(vl->picktxt[5]);
+	mlx_delete_texture(vl->picktxt[6]);
+	mlx_delete_texture(vl->picktxt[7]);
+	mlx_delete_texture(vl->picktxt[8]);
+	mlx_delete_texture(vl->picktxt[9]);
+	mlx_delete_texture(vl->picktxt[10]);
+	mlx_delete_texture(vl->picktxt[11]);
 }
 
 void	ft_cleanup(t_varlist *vl)

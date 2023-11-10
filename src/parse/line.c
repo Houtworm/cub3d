@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   cubfile.c                                          :+:    :+:            */
+/*   line.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:48:55 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:21:31 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:14:29 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	ft_settexture(t_varlist *vl, char *line, int direction)
 	while (line[i] != '.')
 		i++;
 	if (direction == 1)
-		vl->walltext[0] = mlx_load_png(&line[i]);
+		vl->walltxt[0] = mlx_load_png(&line[i]);
 	if (direction == 2)
-		vl->walltext[1] = mlx_load_png(&line[i]);
+		vl->walltxt[1] = mlx_load_png(&line[i]);
 	if (direction == 3)
-		vl->walltext[2] = mlx_load_png(&line[i]);
+		vl->walltxt[2] = mlx_load_png(&line[i]);
 	if (direction == 4)
-		vl->walltext[3] = mlx_load_png(&line[i]);
+		vl->walltxt[3] = mlx_load_png(&line[i]);
 	return (0);
 }
 
@@ -58,7 +58,7 @@ int	ft_setcolor(t_varlist *vl, char *line, int dest)
 	return (0);
 }
 
-char	*ft_checkline(t_varlist *vl, char *line)
+char	*ft_checklinecfn(t_varlist *vl, char *line)
 {
 	if (line[0] == 'C' && line[1] == ' ')
 	{
@@ -76,7 +76,7 @@ char	*ft_checkline(t_varlist *vl, char *line)
 	}
 	else if (!ft_strncmp(line, "NO ", 3))
 	{
-		if (!vl->walltext[0])
+		if (!vl->walltxt[0])
 			ft_settexture(vl, line, 1);
 		else
 			return (" north texture");
@@ -84,25 +84,25 @@ char	*ft_checkline(t_varlist *vl, char *line)
 	return (NULL);
 }
 
-char	*ft_checkline2(t_varlist *vl, char *line)
+char	*ft_checklineesw(t_varlist *vl, char *line)
 {
 	if (!ft_strncmp(line, "EA ", 3))
 	{
-		if (!vl->walltext[1])
+		if (!vl->walltxt[1])
 			ft_settexture(vl, line, 2);
 		else
 			return (" east texture");
 	}
 	else if (!ft_strncmp(line, "SO ", 3))
 	{
-		if (!vl->walltext[2])
+		if (!vl->walltxt[2])
 			ft_settexture(vl, line, 3);
 		else
 			return (" south texture");
 	}
 	else if (!ft_strncmp(line, "WE ", 3))
 	{
-		if (!vl->walltext[3])
+		if (!vl->walltxt[3])
 			ft_settexture(vl, line, 4);
 		else
 			return (" west texture");
@@ -110,32 +110,13 @@ char	*ft_checkline2(t_varlist *vl, char *line)
 	return (NULL);
 }
 
-t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
+void	ft_checkline(t_varlist *vl, char *line)
 {
-	int		fd;
-	char	*line;
 	char	*error;
 
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		ft_errorexit("file does not exist", "parseconfigfile", 1);
-	while (get_next_line(fd, &line))
-	{
-		error = ft_checkline(&vl, line);
-		if (!error)
-			error = ft_checkline2(&vl, line);
-		if (error)
-			ft_errorexit("Double config declaration in .cub file", error, 1);
-		if (vl.ccolor && vl.fcolor && vl.walltext[0] && vl.walltext[1] && vl.walltext[2] && vl.walltext[3])
-		{
-			vl.map = ft_getmap(&vl, fd);
-			break ;
-		}
-		free(line);
-	}
-	close(fd);
-	free(line);
-	if (!vl.map)
-		ft_errorexit("The map is too big, 1000x1000 max\n", "", 1);
-	return (vl);
+	error = ft_checklinecfn(vl, line);
+	if (!error)
+		error = ft_checklineesw(vl, line);
+	if (error)
+		ft_errorexit(error, "Double config declaration in .cub file", 1);
 }

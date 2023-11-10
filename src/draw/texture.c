@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/08 06:00:31 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:12:18 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 void	ft_selecttexture(t_varlist *vl)
 {
 	if (vl->map[vl->mapx][vl->mapy] == '4')
-		vl->temptext = vl->elevtext[0];
+		vl->temptxt = vl->elevtxt[0];
 	else if (vl->side == 0)
 	{
 		if (vl->raydirx > 0)
-			vl->temptext = vl->walltext[0];
+			vl->temptxt = vl->walltxt[0];
 		else
-			vl->temptext = vl->walltext[2];
+			vl->temptxt = vl->walltxt[2];
 	}
 	else
 	{
 		if (vl->raydiry > 0)
-			vl->temptext = vl->walltext[3];
+			vl->temptxt = vl->walltxt[3];
 		else
-			vl->temptext = vl->walltext[1];
+			vl->temptxt = vl->walltxt[1];
 	}
 }
 

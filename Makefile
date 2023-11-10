@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/10 08:30:11 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/10 09:15:39 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC			=src/main/main.c\
 			 src/action/enemy.c\
 			 src/action/pickup.c\
 			 src/action/interact.c\
-			 src/parse/cubfile.c\
+			 src/parse/file.c\
+			 src/parse/line.c\
 			 src/parse/map.c\
 			 src/parse/elements.c\
 			 src/parse/player.c\

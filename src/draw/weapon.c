@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 05:38:19 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:12:33 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	ft_drawweapon(t_varlist *vl)
 	int	size;
 
 	if (vl->weapon == 0)
-		ft_drawweapontexture(vl, vl->gun0text);
+		ft_drawweapontexture(vl, vl->gun0txt);
 	if (vl->weapon == 1)
-		ft_drawweapontexture(vl, vl->gun1text);
+		ft_drawweapontexture(vl, vl->gun1txt);
 	if (vl->weapon == 2)
-		ft_drawweapontexture(vl, vl->gun2text);
+		ft_drawweapontexture(vl, vl->gun2txt);
 	if (vl->weapon == 3)
-		ft_drawweapontexture(vl, vl->gun3text);
+		ft_drawweapontexture(vl, vl->gun3txt);
 	size = vl->h * 0.8;
 	mlx_resize_image(vl->wimg, size, size);
 	mlx_image_to_window(vl->mlx, vl->wimg, vl->w / 2 - size / 2, vl->h - size);

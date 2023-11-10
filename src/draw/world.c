@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 19:52:56 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:12:41 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_drawwall(int x, t_varlist *vl, int drawstart, int drawend, int y)
 	{
 		texty = (int)textpos & (64 - 1);
 		textpos += step;
-		color = ft_gettextcolor(vl->temptext, texty, textx);
+		color = ft_gettextcolor(vl->temptxt, texty, textx);
 		mlx_put_pixel(vl->img, x, y, color);
 		y++;
 	}

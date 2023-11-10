@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 08:00:23 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:14:03 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	ft_resetgame(t_varlist *vl)
 
 void	ft_resettextures(t_varlist *vl)
 {
-	vl->elevtext = ft_calloc(4096, 8);
-	vl->elevtext[0] = mlx_load_png("./assets/wall/elevator.png");
-	vl->walltext = ft_calloc(4096, 8);
-	vl->walltext[0] = NULL;
-	vl->walltext[1] = NULL;
-	vl->walltext[2] = NULL;
-	vl->walltext[3] = NULL;
+	vl->elevtxt = ft_calloc(4096, 8);
+	vl->elevtxt[0] = mlx_load_png("./assets/wall/elevator.png");
+	vl->walltxt = ft_calloc(4096, 8);
+	vl->walltxt[0] = NULL;
+	vl->walltxt[1] = NULL;
+	vl->walltxt[2] = NULL;
+	vl->walltxt[3] = NULL;
 }
 
 void	ft_resetplayer(t_varlist *vl)
@@ -75,15 +75,15 @@ void	ft_restartgame(t_varlist *vl)
 		i++;
 	}
 	mlx_delete_image(vl->mlx, vl->oimg);
-	mlx_delete_texture(vl->walltext[0]);
-	mlx_delete_texture(vl->walltext[1]);
-	mlx_delete_texture(vl->walltext[2]);
-	mlx_delete_texture(vl->walltext[3]);
-	mlx_delete_texture(vl->elevtext[0]);
+	mlx_delete_texture(vl->walltxt[0]);
+	mlx_delete_texture(vl->walltxt[1]);
+	mlx_delete_texture(vl->walltxt[2]);
+	mlx_delete_texture(vl->walltxt[3]);
+	mlx_delete_texture(vl->elevtxt[0]);
 	free(vl->distance);
 	free(vl->sprite);
-	free(vl->walltext);
-	free(vl->elevtext);
+	free(vl->walltxt);
+	free(vl->elevtxt);
 	free(vl->mstat);
 	ft_frearr(vl->map);
 	ft_resetvars(vl);

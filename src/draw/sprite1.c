@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 08:07:36 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:11:46 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void	ft_sortsprites(t_varlist *vl)
 mlx_texture_t	*ft_getsprite(t_varlist *vl, int i)
 {
 	if (vl->sprite[i].type == 1 && vl->sprite[i].status == 0)
-		return (vl->decotext[vl->sprite[i].number]);
+		return (vl->decotxt[vl->sprite[i].number]);
 	if (vl->sprite[i].type == 1 && vl->sprite[i].status == 1)
-		return (vl->decotext[12]);
+		return (vl->decotxt[12]);
 	if (vl->sprite[i].type == 2 && vl->sprite[i].status == 0)
-		return (vl->picktext[vl->sprite[i].number]);
+		return (vl->picktxt[vl->sprite[i].number]);
 	if (vl->sprite[i].type == 3 && vl->sprite[i].status < 2)
-		return (vl->gspottext[vl->sprite[i].number]);
-	return (vl->gdeadtext[vl->sprite[i].number]);
+		return (vl->gfiretxt[vl->sprite[i].number]);
+	return (vl->gdeadtxt[vl->sprite[i].number]);
 }
 
 t_draw	*ft_initdrawsprite(t_varlist *vl, int i)
@@ -98,7 +98,7 @@ void	ft_drawsprites(t_varlist *vl)
 		draw = ft_initdrawsprite(vl, i);
 		ft_getdrawstartend(vl, draw);
 		x = draw->drawstartx;
-		vl->temptext = ft_getsprite(vl, i);
+		vl->temptxt = ft_getsprite(vl, i);
 		ft_drawsprite(vl, draw, x, i);
 		free(draw);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 08:28:49 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:10:53 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ typedef struct s_varlist
 	mlx_image_t			*mimg;
 	mlx_image_t			*oimg;
 	mlx_image_t			*fimg;
-	mlx_texture_t		*temptext;
-	mlx_texture_t		**walltext;
-	mlx_texture_t		**elevtext;
-	mlx_texture_t		**decotext;
-	mlx_texture_t		**picktext;
-	mlx_texture_t		**gspottext;
-	mlx_texture_t		**gdeadtext;
-	mlx_texture_t		**gun0text;
-	mlx_texture_t		**gun1text;
-	mlx_texture_t		**gun2text;
-	mlx_texture_t		**gun3text;
+	mlx_texture_t		*temptxt;
+	mlx_texture_t		**walltxt;
+	mlx_texture_t		**elevtxt;
+	mlx_texture_t		**decotxt;
+	mlx_texture_t		**picktxt;
+	mlx_texture_t		**gfiretxt;
+	mlx_texture_t		**gdeadtxt;
+	mlx_texture_t		**gun0txt;
+	mlx_texture_t		**gun1txt;
+	mlx_texture_t		**gun2txt;
+	mlx_texture_t		**gun3txt;
 	t_sprite			*sprite;
 	int					spritecount;
 	int					w;
@@ -141,6 +141,7 @@ int			ft_getstepx(t_varlist *vl, int mapx);
 int			ft_getstepy(t_varlist *vl, int mapy);
 // PARSE
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
+void		ft_checkline(t_varlist *vl, char *line);
 char		**ft_getmap(t_varlist *vl, int fd);
 char		ft_checkmapelement(t_varlist *vl, char element, int x, int y);
 char		ft_initplayer(t_varlist *vl, char dir, int x, int y);

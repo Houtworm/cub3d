@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 07:50:38 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 09:11:54 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_drawspriteline(t_varlist *vl, t_draw *d, int y, int x)
 		d->x = 0;
 	if (d->x > 64)
 		d->x = 64;
-	texel = &vl->temptext->pixels[(vl->temptext->width * d->y + d->x) * 4];
+	texel = &vl->temptxt->pixels[(vl->temptxt->width * d->y + d->x) * 4];
 	color = texel[0] << 24 | texel[1] << 16 | texel[2] << 8 | texel[3];
 	if (color != 0x980088FF)
 		mlx_put_pixel(vl->img, x, y, color);
