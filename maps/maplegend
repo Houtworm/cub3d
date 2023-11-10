@@ -1,0 +1,35 @@
+The map has to include the player, and he should not be able to walk off the map.
+
+N		Player facing North
+E		Player facing East
+S		Player facing South
+W		Player facing West
+1		Wall
+Space	Walkable space
+0		Walkable space
+D		Door
+B		Wooden Barrel
+b		Poison Barrel
+L		Standing Lamp
+A		Knight Armor
+P		Pillar
+V		Vase
+f		Faucet
+T		Table
+s		Plant
+l		Ceiling Lamp
+C		Chandelier
+$		(Treasure Pickup)
+#		(Treasure Pickup)
+*		(Treasure Pickup)
+&		(Treasure Pickup)
+9		HP Kit (Health Pickup)
+8		Meal (Health Pickup)
+7		Dog food (Health Pickup)
+[		Golden Key (Pickup without function)
+]		Blue Key (Pickup without function)
+3		Machine Gun (Weapon Pickup)
+4		Gatling Gun (Weapon Pickup)
+2		Ammo (Ammo Pickup)
+K		Nazi Guard (Killable)
+X		Elevator (Level end)
