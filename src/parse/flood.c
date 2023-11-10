@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 03:00:59 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 10:51:00 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_floodvertical(t_varlist vl, char **fillmap, int x, int y)
 		if (ft_flood(vl, fillmap, x - 1, y))
 			return (1);
 	}
-	if (x > vl.mapsizex)
+	if (x >= vl.mapsizex)
 		return (1);
 	if (fillmap[y][x + 1] != '1')
 	{
@@ -41,7 +41,7 @@ int	ft_floodhorizontal(t_varlist vl, char **fillmap, int x, int y)
 		if (ft_flood(vl, fillmap, x, y - 1))
 			return (1);
 	}
-	if (y > vl.mapsizey)
+	if (y >= vl.mapsizey)
 		return (1);
 	if (fillmap[y + 1][x] != '1')
 	{

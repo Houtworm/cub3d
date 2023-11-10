@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 10:29:33 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 11:08:41 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_getmapx(t_varlist *vl, char **map, int y, int fd)
 	while (ret && x <= 1024 && line[x])
 	{
 		if (x > 1000)
-			return (-42);
+			ft_errorexit("The map is too big, 1000x1000 max\n", "", 1);
 		map[y][x] = ft_checkmapelement(vl, line[x], x, y);
 		if (x > vl->mapsizex)
 			vl->mapsizex = x;
@@ -52,14 +52,13 @@ char	**ft_getmap(t_varlist *vl, int fd)
 	ret = 1;
 	while (y <= 1024 && ret > 0)
 	{
-		if (y > 1000 || ret == -42)
-			return (NULL);
+		if (y > 1000)
+			ft_errorexit("The map is too big, 1000x1000 max\n", "", 1);
 		map[y] = ft_calloc(1024, 8);
 		ret = ft_getmapx(vl, map, y, fd);
 		if (ret == 0)
 			return (map);
-		if (y > vl->mapsizey)
-			vl->mapsizey = y;
+		vl->mapsizey = y;
 		y++;
 	}
 	ft_errorexit("Something went wrong", "ft_getmap", 1);
