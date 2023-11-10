@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   finish.c                                           :+:    :+:            */
+/*   menu.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 08:34:24 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 02:50:00 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_printstats1(t_varlist *vl)
 	ft_vafree(3, temp, total, current);
 }
 
-void	ft_printstats2(t_varlist *vl)
+void	ft_printstats2(t_varlist *vl, int score)
 {
 	char	*current;
 	char	*temp;
@@ -52,13 +52,20 @@ void	ft_printstats2(t_varlist *vl)
 	vl->mstat[5] = mlx_put_string(vl->mlx, temp, vl->w / 2 - 100, 380);
 	mlx_resize_image(vl->mstat[5], 200, 50);
 	ft_vafree(2, temp, current);
+	current = ft_itoa(score);
+	temp = ft_strjoin("Total Score ", current);
+	vl->mstat[6] = mlx_put_string(vl->mlx, temp, vl->w / 2 - 150, 430);
+	mlx_resize_image(vl->mstat[6], 300, 50);
+	ft_vafree(2, current, temp);
+	temp = ft_strdup("Press Jump to restart");
+	vl->mstat[7] = mlx_put_string(vl->mlx, temp, vl->w / 2 - 200, 480);
+	mlx_resize_image(vl->mstat[7], 400, 50);
+	free(temp);
 }
 
-void	ft_printscore(t_varlist *vl)
+int	ft_getscore(t_varlist *vl)
 {
 	int		score;
-	char	*scor;
-	char	*temp;
 
 	score = (vl->treasure * 10000) + (vl->kills * 1000);
 	score = score + (vl->ammo * 100) + (vl->hp * 100);
@@ -75,13 +82,7 @@ void	ft_printscore(t_varlist *vl)
 		score = score + 10000;
 	if (vl->tottime < 180)
 		score = score + 50000;
-	scor = ft_itoa(score);
-	temp = ft_strjoin("Total Score ", scor);
-	vl->mstat[6] = mlx_put_string(vl->mlx, temp, vl->w / 2 - 150, 430);
-	ft_vafree(2, scor, temp);
-	mlx_resize_image(vl->mstat[6], 300, 50);
-	vl->mstat[7] = mlx_put_string(vl->mlx, "Press Jump to restart", vl->w / 2 - 200, 480);
-	mlx_resize_image(vl->mstat[7], 400, 50);
+	return (score);
 }
 
 void	ft_finish(t_varlist *vl)
@@ -105,11 +106,10 @@ void	ft_finish(t_varlist *vl)
 	mlx_image_to_window(vl->mlx, vl->oimg, 0, 0);
 	mlx_set_instance_depth(vl->oimg->instances, 15);
 	vl->mstat = ft_calloc(4096, 8);
-	vl->mstat[0] = mlx_put_string(vl->mlx, "YOU COMPLETED THE LEVEL!", vl->w / 2 - 250, 30);
+	vl->mstat[0] = mlx_put_string(vl->mlx, "YOU ROCK!", vl->w / 2 - 250, 30);
 	mlx_resize_image(vl->mstat[0], 500, 150);
 	ft_printstats1(vl);
-	ft_printstats2(vl);
-	ft_printscore(vl);
+	ft_printstats2(vl, ft_getscore(vl));
 	vl->menu = 1;
 }
 
@@ -137,7 +137,6 @@ void	ft_youdied(t_varlist *vl)
 	vl->mstat[0] = mlx_put_string(vl->mlx, "YOU DIED!", vl->w / 2 - 250, 30);
 	mlx_resize_image(vl->mstat[0], 500, 150);
 	ft_printstats1(vl);
-	ft_printstats2(vl);
-	ft_printscore(vl);
+	ft_printstats2(vl, ft_getscore(vl));
 	vl->menu = 1;
 }

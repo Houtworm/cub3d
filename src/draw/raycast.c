@@ -6,7 +6,7 @@
 /*   By: djonker <codam@houtworm.net>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/27 14:36:42 by djonker       #+#    #+#                 */
-/*   Updated: 2023/11/09 19:18:57 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 02:32:10 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ void	ft_raycast(t_varlist *vl, int x)
 			vl->mapy += stepy;
 			vl->side = 1;
 		}
-		if (vl->map[vl->mapx][vl->mapy] == '1' || vl->map[vl->mapx][vl->mapy] == '4')
+		if (vl->map[vl->mapx][vl->mapy] == '1' || \
+				vl->map[vl->mapx][vl->mapy] == '4')
 			hit = 1;
 	}
 }

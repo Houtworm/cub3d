@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 22:49:58 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 03:00:30 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ char		ft_addsoliddecor(t_varlist *vl, int x, int y, int number);
 char		ft_addpickup(t_varlist *vl, int x, int y, int number);
 char		ft_addenemy(t_varlist *vl, int x, int y, int number);
 int			ft_floodfill(t_varlist vl);
+int			ft_flood(t_varlist vl, char **fillmap, int x, int y);
 // INPUT
 void		ft_processinput(t_varlist *vl);
 void		ft_processturn(t_varlist *vl, double rotspeed);

@@ -6,13 +6,32 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 07:44:39 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 03:00:59 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int	ft_flood(t_varlist vl, char **fillmap, int x, int y)
+int	ft_floodvertical(t_varlist vl, char **fillmap, int x, int y)
+{
+	if (fillmap[y][x - 1] != '1')
+	{
+		fillmap[y][x - 1] = '1';
+		if (ft_flood(vl, fillmap, x - 1, y))
+			return (1);
+	}
+	if (x > vl.mapsizex)
+		return (1);
+	if (fillmap[y][x + 1] != '1')
+	{
+		fillmap[y][x + 1] = '1';
+		if (ft_flood(vl, fillmap, x + 1, y))
+			return (1);
+	}
+	return (0);
+}
+
+int	ft_floodhorizontal(t_varlist vl, char **fillmap, int x, int y)
 {
 	if (y == 0)
 		return (1);
@@ -32,20 +51,15 @@ int	ft_flood(t_varlist vl, char **fillmap, int x, int y)
 	}
 	if (x == 0)
 		return (1);
-	if (fillmap[y][x - 1] != '1')
-	{
-		fillmap[y][x - 1] = '1';
-		if (ft_flood(vl, fillmap, x - 1, y))
-			return (1);
-	}
-	if (x > vl.mapsizex)
+	return (0);
+}
+
+int	ft_flood(t_varlist vl, char **fillmap, int x, int y)
+{
+	if (ft_floodhorizontal(vl, fillmap, x, y))
 		return (1);
-	if (fillmap[y][x + 1] != '1')
-	{
-		fillmap[y][x + 1] = '1';
-		if (ft_flood(vl, fillmap, x + 1, y))
-			return (1);
-	}
+	if (ft_floodvertical(vl, fillmap, x, y))
+		return (1);
 	return (0);
 }
 

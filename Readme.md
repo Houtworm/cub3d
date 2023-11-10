@@ -48,15 +48,6 @@ Cub3D is a simple raycasting game using the mlx library
 - You died screen
 
 ---
-
-## Missing Features
-- Moving Enemies, We are not allowed to use random, so random movement is hard to do
-- sounds and music, require functions that we are not allowed to use sadly
-- floor textures, breaks the mandatory subject, it needs to be a solid color defined in the .cub file
-- skybox, breaks the mandatory subject, it needs to be a solid color defined in the .cub file
-- Start Menu, Breaks the mandatory subject since it needs to start with the .cub file passed as an argument
-
----
 ## Bugs
 - none?
 

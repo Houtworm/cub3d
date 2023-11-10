@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:54:20 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 20:29:24 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 03:05:28 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_sortsprites(t_varlist *vl)
 	i = 0;
 	while (vl->spritecount > i)
 	{
-		vl->sprite[i].distance = pow((vl->posx - vl->sprite[i].x), 2) + pow((vl->posy - vl->sprite[i].y), 2);
+		vl->sprite[i].distance = pow((vl->posx - vl->sprite[i].x), 2) + \
+								pow((vl->posy - vl->sprite[i].y), 2);
 		i++;
 	}
 	while (i)
