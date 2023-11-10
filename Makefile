@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/10 06:18:43 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/10 06:55:53 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ SRC			=src/main/main.c\
 			 src/input/move.c\
 			 src/input/turn.c\
 			 src/input/acro.c\
-			 src/input/guns.c\
+			 src/input/guns.c
 OBJ			=$(SRC:src/%.c=obj/%.o)
 
 all:		libft getnextline mlx/build/mlx42.a $(NAME)

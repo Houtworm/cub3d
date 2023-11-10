@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 06:15:42 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 06:57:23 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	mainloop(void *param)
 
 	vl = param;
 	ft_processinput(vl);
-	if (vl->menu == 0)
+	if (!vl->menu)
 	{
 		ft_newframe(vl);
 		ft_drawmap(vl);
@@ -103,8 +103,6 @@ int	main(int argc, char **argv)
 	vl.cubfile = ft_strdup(argv[1]);
 	if (ft_floodfill(vl))
 		ft_errorexit("map is invalid", "floodfill", 1);
-	if (!vl.img || (mlx_image_to_window(vl.mlx, vl.img, 0, 0) < 0))
-		ft_errorexit("image to window failed ", "main", 1);
 	mlx_key_hook(vl.mlx, &keyhook, &vl);
 	mlx_resize_hook(vl.mlx, &resizehook, &vl);
 	mlx_scroll_hook(vl.mlx, &scrollhook, &vl);

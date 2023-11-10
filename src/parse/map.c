@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 23:38:43 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 07:14:41 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,9 @@ char	**ft_getmap(t_varlist *vl, int fd)
 				map[y][x] = ft_addpickup(vl, y, x, 5);
 			else if (line[x] == '7')
 				map[y][x] = ft_addpickup(vl, y, x, 6);
-			else if (line[x] == '[')
+			else if (line[x] == '5')
 				map[y][x] = ft_addpickup(vl, y, x, 7);
-			else if (line[x] == ']')
+			else if (line[x] == '6')
 				map[y][x] = ft_addpickup(vl, y, x, 8);
 			else if (line[x] == '3')
 				map[y][x] = ft_addpickup(vl, y, x, 9);

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 22:20:51 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 06:52:19 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_pickupweapon(t_varlist *vl, int i)
 {
 	vl->flash = 6;
 	vl->flashcolor = 3;
+	vl->ammo += 10;
 	if (vl->sprite[i].number == 9)
 	{
 		vl->mgun = 1;
@@ -52,8 +53,6 @@ void	ft_pickupweapon(t_varlist *vl, int i)
 		vl->weapon = 3;
 		vl->reloadtime = 0.02;
 	}
-	else if (vl->sprite[i].number == 11)
-		vl->ammo += 10;
 }
 
 void	ft_pickup(t_varlist *vl, int i)

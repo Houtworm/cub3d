@@ -23,25 +23,27 @@ Cub3D is a simple raycasting game using the mlx library
 - Animated Sprites
 - Minimap
 ### Extra
-- FPS counter
-- Timer
+- Map sizes up to 1 Megabyte (1000x1000)
+- Fullscreen
 - Player can walk in 8 directions
 - Player can Run
 - Player can Jump
 - Player can Crouch
-- Map sizes up to 1 Megabyte (1000x1000)
-- Player can collect Treasure
 - Vertical Aiming
-- Fullscreen
-- Barrels
-- Lights
+- FPS counter
+- Timer
+- Decoration
 - Weapon pickups
 - Weapon Animations
 - Stabs and bullets kill Enemies
-- Ammo system
+- Ammo Pickups
+- Ammo System
 - Shooting Enemies
 - Animated Enemies
+- Destructable Sprites
+- Heath Pickups
 - HP system
+- Treasure Pickups
 - Score system
 - Level end elevator
 - End level screen
