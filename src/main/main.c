@@ -6,13 +6,13 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 22:27:16 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 06:15:42 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void	ft_replaceimage(t_varlist *vl)
+void	ft_newframe(t_varlist *vl)
 {
 	mlx_delete_image(vl->mlx, vl->img);
 	mlx_delete_image(vl->mlx, vl->fstat);
@@ -27,10 +27,6 @@ void	ft_replaceimage(t_varlist *vl)
 	vl->img = mlx_new_image(vl->mlx, vl->w, vl->h);
 	vl->wimg = mlx_new_image(vl->mlx, 64, 64);
 	vl->mimg = mlx_new_image(vl->mlx, 22, 22);
-}
-
-void	ft_timers(t_varlist *vl)
-{
 	vl->frametime = vl->mlx->delta_time;
 	vl->tottime = vl->tottime + vl->frametime;
 }
@@ -76,17 +72,15 @@ void	mainloop(void *param)
 	ft_processinput(vl);
 	if (vl->menu == 0)
 	{
-		ft_replaceimage(vl);
+		ft_newframe(vl);
 		ft_drawmap(vl);
-		ft_animateenemies(vl);
+		ft_enemyaction(vl);
 		ft_checkpickup(vl);
 		ft_drawsprites(vl);
 		ft_drawweapon(vl);
 		ft_fireweapon(vl);
 		ft_drawminimap(vl);
-		if (vl->hp <= 0)
-			ft_youdied(vl);
-		ft_timers(vl);
+		ft_checkhealth(vl);
 		ft_printstats(vl);
 		ft_flashscreen(vl, 0, 0, 0);
 		ft_imagetowindow(vl);

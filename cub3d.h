@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 05:45:45 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 06:14:04 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ void		ft_youdied(t_varlist *vl);
 // ACTION
 void		ft_checkpickup(t_varlist *vl);
 void		ft_firebullet(t_varlist *vl);
-void		ft_animateenemies(t_varlist *vl);
+void		ft_enemyaction(t_varlist *vl);
 void		ft_fireweapon(t_varlist *vl);
 void		ft_interact(t_varlist *vl);
 void		ft_checkhealth(t_varlist *vl);

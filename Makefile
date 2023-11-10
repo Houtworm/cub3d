@@ -6,7 +6,7 @@
 #    By: houtworm <codam@houtworm.net>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/26 10:46:29 by houtworm      #+#    #+#                  #
-#    Updated: 2023/11/10 05:47:08 by houtworm      ########   odam.nl          #
+#    Updated: 2023/11/10 06:18:43 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRC			=src/main/main.c\
 			 src/parse/flood.c\
 			 src/draw/world.c\
 			 src/draw/texture.c\
+			 src/draw/sprite1.c\
+			 src/draw/sprite2.c\
 			 src/draw/minimap.c\
 			 src/draw/weapon.c\
 			 src/draw/stats.c\
@@ -41,8 +43,6 @@ SRC			=src/main/main.c\
 			 src/input/turn.c\
 			 src/input/acro.c\
 			 src/input/guns.c\
-			 src/sprite/check.c\
-			 src/sprite/sprite.c
 OBJ			=$(SRC:src/%.c=obj/%.o)
 
 all:		libft getnextline mlx/build/mlx42.a $(NAME)
