@@ -6,49 +6,58 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 08:49:21 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/10 10:29:33 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
+int	ft_getmapx(t_varlist *vl, char **map, int y, int fd)
+{
+	int		ret;
+	int		x;
+	char	*line;
+
+	ret = 1;
+	while (ret > 0)
+	{
+		ret = get_next_line(fd, &line);
+		if (line[0])
+			break ;
+		free(line);
+	}
+	x = 0;
+	while (ret && x <= 1024 && line[x])
+	{
+		if (x > 1000)
+			return (-42);
+		map[y][x] = ft_checkmapelement(vl, line[x], x, y);
+		if (x > vl->mapsizex)
+			vl->mapsizex = x;
+		x++;
+	}
+	if (ret)
+		free(line);
+	return (ret);
+}
+
 char	**ft_getmap(t_varlist *vl, int fd)
 {
 	int		y;
-	int		x;
 	int		ret;
 	char	**map;
-	char	*line;
 
 	map = ft_calloc(1024, 8);
 	y = 0;
-	x = 0;
 	ret = 1;
 	while (y <= 1024 && ret > 0)
 	{
-		if (y > 1000)
+		if (y > 1000 || ret == -42)
 			return (NULL);
 		map[y] = ft_calloc(1024, 8);
-		while (ret > 0)
-		{
-			ret = get_next_line(fd, &line);
-			if (line[0])
-				break ;
-			free(line);
-		}
+		ret = ft_getmapx(vl, map, y, fd);
 		if (ret == 0)
 			return (map);
-		x = 0;
-		while (x <= 1024 && line[x])
-		{
-			if (x > 1000)
-				return (NULL);
-			map[y][x] = ft_checkmapelement(vl, line[x], x, y);
-			if (x > vl->mapsizex)
-				vl->mapsizex = x;
-			x++;
-		}
-		free(line);
 		if (y > vl->mapsizey)
 			vl->mapsizey = y;
 		y++;
