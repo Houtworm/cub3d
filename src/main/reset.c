@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   reset.c                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: houtworm <codam@houtworm.net>                +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 09:14:03 by houtworm      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   reset.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 16:49:12 by houtworm          #+#    #+#             */
+/*   Updated: 2023/11/15 19:57:01 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_resettextures(t_varlist *vl)
 {
 	vl->elevtxt = ft_calloc(4096, 8);
 	vl->elevtxt[0] = mlx_load_png("./assets/wall/elevator.png");
+	vl->doortxt = ft_calloc(4096, 8);
+	vl->doortxt[0] = mlx_load_png("./assets/wall/door.png");
 	vl->walltxt = ft_calloc(4096, 8);
 	vl->walltxt[0] = NULL;
 	vl->walltxt[1] = NULL;
@@ -80,10 +82,12 @@ void	ft_restartgame(t_varlist *vl)
 	mlx_delete_texture(vl->walltxt[2]);
 	mlx_delete_texture(vl->walltxt[3]);
 	mlx_delete_texture(vl->elevtxt[0]);
+	mlx_delete_texture(vl->doortxt[0]);
 	free(vl->distance);
 	free(vl->sprite);
 	free(vl->walltxt);
 	free(vl->elevtxt);
+	free(vl->doortxt);
 	free(vl->mstat);
 	ft_frearr(vl->map);
 	ft_resetvars(vl);

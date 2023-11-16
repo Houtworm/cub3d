@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   elements.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: houtworm <codam@houtworm.net>                +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 08:45:58 by houtworm      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   elements.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 17:33:50 by houtworm          #+#    #+#             */
+/*   Updated: 2023/11/16 14:38:44 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	ft_checkforbasics(t_varlist *vl, char element, int x, int y)
 	else if (ft_strchr("NESW", element))
 		return (ft_initplayer(vl, element, y, x));
 	else if (element == 'D')
-		return ('0');
+		return ('D');
 	else if (element == 'X')
 		return ('4');
 	return ('\0');

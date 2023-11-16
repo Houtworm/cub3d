@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   cleanup.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: houtworm <codam@houtworm.net>                +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 09:13:02 by houtworm      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 14:13:07 by houtworm          #+#    #+#             */
+/*   Updated: 2023/11/15 19:47:34 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_deletewalls(t_varlist *vl)
 	mlx_delete_texture(vl->walltxt[2]);
 	mlx_delete_texture(vl->walltxt[3]);
 	mlx_delete_texture(vl->elevtxt[0]);
+	mlx_delete_texture(vl->doortxt[0]);
 }
 
 void	ft_deletepickup(t_varlist *vl)

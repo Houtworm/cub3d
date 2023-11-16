@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   cub3d.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: houtworm <codam@houtworm.net>                +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/26 10:46:35 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 10:40:12 by houtworm      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 10:46:35 by houtworm          #+#    #+#             */
+/*   Updated: 2023/11/15 19:46:45 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_varlist
 	mlx_texture_t		*temptxt;
 	mlx_texture_t		**walltxt;
 	mlx_texture_t		**elevtxt;
+	mlx_texture_t		**doortxt;
 	mlx_texture_t		**decotxt;
 	mlx_texture_t		**picktxt;
 	mlx_texture_t		**gfiretxt;
