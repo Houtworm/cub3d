@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture.c                                          :+:      :+:    :+:   */
+/*   texture.c                                          :+:    :+:            */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:54:20 by houtworm          #+#    #+#             */
-/*   Updated: 2023/11/15 19:47:43 by joel             ###   ########.fr       */
+/*   Updated: 2023/11/17 11:31:14 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_selecttexture(t_varlist *vl)
 {
 	if (vl->map[vl->mapx][vl->mapy] == '4')
 		vl->temptxt = vl->elevtxt[0];
-	if (vl->map[vl->mapx][vl->mapy] == 'D')
+	else if (vl->map[vl->mapx][vl->mapy] == 'D')
 		vl->temptxt = vl->doortxt[0];
 	else if (vl->side == 0)
 	{
