@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.c                                          :+:    :+:            */
+/*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:36:42 by djonker           #+#    #+#             */
-/*   Updated: 2023/11/17 11:27:57 by houtworm      ########   odam.nl         */
+/*   Updated: 2023/11/20 18:49:53 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,16 @@ void	ft_raycast(t_varlist *vl, int x)
 			vl->mapy += stepy;
 			vl->side = 1;
 		}
+		if (vl->map[vl->mapx][vl->mapy] == 'D')
+		{
+			if (vl->side)
+				vl->sidedisty += vl->deltadisty / 2;
+			else
+				vl->sidedistx += vl->deltadistx / 2;
+			hit = 1;
+		}
 		if (vl->map[vl->mapx][vl->mapy] == '1' || \
-				vl->map[vl->mapx][vl->mapy] == '4' || \
-				vl->map[vl->mapx][vl->mapy] == 'D')
+				vl->map[vl->mapx][vl->mapy] == '4')
 			hit = 1;
 	}
 }
