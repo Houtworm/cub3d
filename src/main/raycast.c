@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:36:42 by djonker           #+#    #+#             */
-/*   Updated: 2023/11/20 18:49:53 by joel             ###   ########.fr       */
+/*   Updated: 2024/01/17 15:00:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int	ft_getstepx(t_varlist *vl, int mapx)
+int ft_getstepx(t_varlist *vl, int mapx)
 {
-	int	stepx;
+	int stepx;
 
 	if (vl->raydirx < 0)
 	{
@@ -29,9 +29,9 @@ int	ft_getstepx(t_varlist *vl, int mapx)
 	return (stepx);
 }
 
-int	ft_getstepy(t_varlist *vl, int mapy)
+int ft_getstepy(t_varlist *vl, int mapy)
 {
-	int	stepy;
+	int stepy;
 
 	if (vl->raydiry < 0)
 	{
@@ -46,9 +46,9 @@ int	ft_getstepy(t_varlist *vl, int mapy)
 	return (stepy);
 }
 
-int	ft_prepcast(t_varlist *vl, int x)
+int ft_prepcast(t_varlist *vl, int x)
 {
-	double	camerax;
+	double camerax;
 
 	camerax = 2 * x / (double)vl->w - 1;
 	vl->raydirx = vl->dirx + vl->planex * camerax;
@@ -58,15 +58,42 @@ int	ft_prepcast(t_varlist *vl, int x)
 	return (0);
 }
 
-void	ft_raycast(t_varlist *vl, int x)
+// if ft_checkhalf returns 0.5 or higher it means the cell was hit through the middle in other words it hit the door. 
+unsigned int	ft_checkhalf(t_varlist *vl)
+{	
+	unsigned int	p0;
+	unsigned int	p1;
+
+	if (!vl->side)
+	{
+//		p0 is the position of the rayhit on the x-axis.
+//		p1 is the position of the rayhit on the y-axis if there was no door obstructing it.
+		p0 = vl->raydiry * vl->sidedistx;
+		p1 = vl->raydiry * (vl->sidedisty + vl->deltadisty);
+	}
+	else
+	{
+//		p0 is the position of the rayhit on the y-axis.
+//		p1 is the position of the rayhit on the x-axis if there was no door obstructing it.
+		p0 = vl->raydirx * vl->sidedisty;
+		p1 = vl->raydirx * (vl->sidedistx + vl->deltadistx);
+	}
+//	returns the difference
+	return (p0 - p1);
+}
+
+void ft_raycast(t_varlist *vl, int x)
 {
-	int		hit;
-	int		stepx;
-	int		stepy;
+	int hit;
+	int stepx;
+	int stepy;
+	double	half;
 
 	hit = ft_prepcast(vl, x);
 	stepx = ft_getstepx(vl, vl->mapx);
 	stepy = ft_getstepy(vl, vl->mapy);
+	if (x == vl->w/2)
+		printf("dir: (%f, %f)\n", vl->dirx, vl->diry);
 	while (hit == 0)
 	{
 		if (vl->sidedistx < vl->sidedisty)
@@ -83,14 +110,18 @@ void	ft_raycast(t_varlist *vl, int x)
 		}
 		if (vl->map[vl->mapx][vl->mapy] == 'D')
 		{
-			if (vl->side)
-				vl->sidedisty += vl->deltadisty / 2;
-			else
-				vl->sidedistx += vl->deltadistx / 2;
-			hit = 1;
+			half = ft_checkhalf(vl);
+			if (half >= 0.5)
+			{
+				if (!vl->side)
+					vl->sidedistx += vl->deltadistx * 0.5;
+				else
+					vl->sidedisty += vl->deltadisty * 0.5;
+				hit = 1;
+			}
 		}
-		if (vl->map[vl->mapx][vl->mapy] == '1' || \
-				vl->map[vl->mapx][vl->mapy] == '4')
-			hit = 1;
+		if (vl->map[vl->mapx][vl->mapy] == '1' ||
+			vl->map[vl->mapx][vl->mapy] == '4')
+			hit = 1; 
 	}
 }
