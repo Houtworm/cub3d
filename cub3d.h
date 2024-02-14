@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:    :+:            */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:46:35 by houtworm          #+#    #+#             */
-/*   Updated: 2023/11/15 19:46:45 by joel             ###   ########.fr       */
+/*   Updated: 2024/02/14 19:06:03 by djonker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@
 # include "getnextline/get_next_line.h"
 # include "mlx/include/MLX42/MLX42.h"
 # include <stdio.h>
+
+//typedef struct s_door
+//{
+	//int				x;
+	//int				y;
+	//double				anitime;
+	//int					number;
+	//int					status;
+//}						t_door;
 
 typedef struct s_sprite
 {

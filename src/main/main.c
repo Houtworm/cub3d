@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 07:49:05 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/02/14 17:50:32 by djonker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,27 @@ void	ft_imagetowindow(t_varlist *vl)
 	mlx_set_instance_depth(vl->img->instances, 1);
 }
 
+void	ft_printall(t_varlist *vl)
+{
+	printf("\n\n\n");
+	printf("posx: %f\n", vl->posx);
+	printf("posy: %f\n", vl->posy);
+	printf("dirx: %f\n", vl->dirx);
+	printf("diry: %f\n", vl->diry);
+	printf("planex: %f\n", vl->planex);
+	printf("planey: %f\n", vl->planey);
+	printf("raydirx: %f\n", vl->raydirx);
+	printf("raydiry: %f\n", vl->raydiry);
+	printf("sidedistx: %f\n", vl->sidedistx);
+	printf("sidedisty: %f\n", vl->sidedisty);
+	printf("deltadistx: %f\n", vl->deltadistx);
+	printf("deltadisty: %f\n", vl->deltadisty);
+	printf("wdist: %f\n", vl->wdist);
+	printf("side: %d\n", vl->side);
+	printf("lineh: %d\n", vl->lineh);
+	printf("distance: %d\n", *vl->distance);
+}
+
 void	mainloop(void *param)
 {
 	t_varlist	*vl;
@@ -48,6 +69,7 @@ void	mainloop(void *param)
 	{
 		ft_newframe(vl);
 		ft_drawmap(vl);
+		/*ft_processdoors(vl);*/ // here we check every door struct instance, animate it
 		ft_enemyaction(vl);
 		ft_checkpickup(vl);
 		ft_drawsprites(vl);
@@ -58,6 +80,7 @@ void	mainloop(void *param)
 		ft_printstats(vl);
 		ft_flashscreen(vl, 0, 0, 0);
 		ft_imagetowindow(vl);
+		ft_printall(vl);
 	}
 	else if (vl->menu == 3)
 		ft_restartgame(vl);

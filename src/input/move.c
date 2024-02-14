@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/09 01:04:20 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/02/14 18:15:04 by djonker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_checkmove(t_varlist *vl, double movy, double movx, double movespeed)
 	}
 	newx = vl->posx + movx * movespeed * vl->run;
 	newy = vl->posy + movy * movespeed * vl->run;
-	if (vl->map[(int)newx][(int)vl->posy] == '0')
+	if (vl->map[(int)newx][(int)vl->posy] == '0' || vl->map[(int)newx][(int)vl->posy] == 'd')
 		vl->posx = newx;
-	if (vl->map[(int)vl->posx][(int)newy] == '0')
+	if (vl->map[(int)vl->posx][(int)newy] == '0' || vl->map[(int)vl->posx][(int)newy] == 'd')
 		vl->posy = newy;
 }
 

@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/05 05:41:53 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/02/14 19:07:33 by djonker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,20 @@ void	ft_turnhorizontal(double xpos, t_varlist *vl)
 	if (xpos < vl->oldmouseposx)
 	{
 		temp = vl->dirx;
-		vl->dirx = temp * cos(0.01) - vl->diry * sin(0.01);
-		vl->diry = temp * sin(0.01) + vl->diry * cos(0.01);
+		vl->dirx = temp * cos(0.05) - vl->diry * sin(0.05);
+		vl->diry = temp * sin(0.05) + vl->diry * cos(0.05);
 		temp = vl->planex;
-		vl->planex = temp * cos(0.01) - vl->planey * sin(0.01);
-		vl->planey = temp * sin(0.01) + vl->planey * cos(0.01);
+		vl->planex = temp * cos(0.05) - vl->planey * sin(0.05);
+		vl->planey = temp * sin(0.05) + vl->planey * cos(0.05);
 	}
 	if (xpos > vl->oldmouseposx)
 	{
 		temp = vl->dirx;
-		vl->dirx = temp * cos(-0.01) - vl->diry * sin(-0.01);
-		vl->diry = temp * sin(-0.01) + vl->diry * cos(-0.01);
+		vl->dirx = temp * cos(-0.05) - vl->diry * sin(-0.05);
+		vl->diry = temp * sin(-0.05) + vl->diry * cos(-0.05);
 		temp = vl->planex;
-		vl->planex = temp * cos(-0.01) - vl->planey * sin(-0.01);
-		vl->planey = temp * sin(-0.01) + vl->planey * cos(-0.01);
+		vl->planex = temp * cos(-0.05) - vl->planey * sin(-0.05);
+		vl->planey = temp * sin(-0.05) + vl->planey * cos(-0.05);
 	}
 	vl->oldmouseposx = xpos;
 }

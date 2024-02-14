@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   interact.c                                         :+:      :+:    :+:   */
+/*   interact.c                                         :+:    :+:            */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:50:23 by houtworm          #+#    #+#             */
-/*   Updated: 2023/11/16 14:59:20 by joel             ###   ########.fr       */
+/*   Updated: 2024/02/14 17:27:10 by djonker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ void	ft_interact(t_varlist *vl)
 	if (vl->map[mapx][mapy] == '4')
 		ft_finish(vl);
 	if (vl->map[mapx][mapy] == 'D')
-		vl->map[mapx][mapy] = '0';
+		vl->map[mapx][mapy] = 'd';
+	else if (vl->map[mapx][mapy] == 'd') // closing doors
+		vl->map[mapx][mapy] = 'D';
 }
