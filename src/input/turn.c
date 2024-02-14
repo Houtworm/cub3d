@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/02/14 19:07:33 by djonker       ########   odam.nl         */
+/*   Updated: 2024/02/14 19:38:57 by djonker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void	ft_turnvertical(double ypos, t_varlist *vl)
 {
 	if (ypos < vl->oldmouseposy)
 		if (vl->vaim < 300)
-			vl->vaim = vl->vaim + 3;
+			vl->vaim = vl->vaim + 10;
 	if (ypos > vl->oldmouseposy)
 		if (vl->vaim > -300)
-			vl->vaim = vl->vaim - 3;
+			vl->vaim = vl->vaim - 10;
 	vl->oldmouseposy = ypos;
 }
 
@@ -54,20 +54,20 @@ void	ft_turnhorizontal(double xpos, t_varlist *vl)
 	if (xpos < vl->oldmouseposx)
 	{
 		temp = vl->dirx;
-		vl->dirx = temp * cos(0.05) - vl->diry * sin(0.05);
-		vl->diry = temp * sin(0.05) + vl->diry * cos(0.05);
+		vl->dirx = temp * cos(0.03) - vl->diry * sin(0.03);
+		vl->diry = temp * sin(0.03) + vl->diry * cos(0.03);
 		temp = vl->planex;
-		vl->planex = temp * cos(0.05) - vl->planey * sin(0.05);
-		vl->planey = temp * sin(0.05) + vl->planey * cos(0.05);
+		vl->planex = temp * cos(0.03) - vl->planey * sin(0.03);
+		vl->planey = temp * sin(0.03) + vl->planey * cos(0.03);
 	}
 	if (xpos > vl->oldmouseposx)
 	{
 		temp = vl->dirx;
-		vl->dirx = temp * cos(-0.05) - vl->diry * sin(-0.05);
-		vl->diry = temp * sin(-0.05) + vl->diry * cos(-0.05);
+		vl->dirx = temp * cos(-0.03) - vl->diry * sin(-0.03);
+		vl->diry = temp * sin(-0.03) + vl->diry * cos(-0.03);
 		temp = vl->planex;
-		vl->planex = temp * cos(-0.05) - vl->planey * sin(-0.05);
-		vl->planey = temp * sin(-0.05) + vl->planey * cos(-0.05);
+		vl->planex = temp * cos(-0.03) - vl->planey * sin(-0.03);
+		vl->planey = temp * sin(-0.03) + vl->planey * cos(-0.03);
 	}
 	vl->oldmouseposx = xpos;
 }
