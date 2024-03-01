@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:    :+:            */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:46:35 by houtworm          #+#    #+#             */
-/*   Updated: 2024/02/14 19:06:03 by djonker       ########   odam.nl         */
+/*   Updated: 2024/03/01 15:12:34 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,21 @@
 # include "mlx/include/MLX42/MLX42.h"
 # include <stdio.h>
 
-//typedef struct s_door
-//{
-	//int				x;
-	//int				y;
-	//double				anitime;
-	//int					number;
-	//int					status;
-//}						t_door;
+# define DOOR_CLOSING		0
+# define DOOR_OPENING		1
+# define DOOR_IDLE			2
+# define DOOR_SPEED			0.01
+# define DOOR_TILL_CLOSE	5
+
+typedef struct s_door
+{
+	int				x;
+	int				y;
+	double			closedness;
+	unsigned int	status;
+	double			time;
+
+}				t_door;
 
 typedef struct s_sprite
 {
@@ -85,6 +92,7 @@ typedef struct s_varlist
 	mlx_texture_t		**gun2txt;
 	mlx_texture_t		**gun3txt;
 	t_sprite			*sprite;
+	t_door				**doors;
 	int					spritecount;
 	int					w;
 	int					h;
@@ -153,6 +161,9 @@ int			ft_getstepy(t_varlist *vl, int mapy);
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename);
 void		ft_checkline(t_varlist *vl, char *line);
 char		**ft_getmap(t_varlist *vl, int fd);
+t_door		**ft_initdoors(t_varlist *vl);
+t_door		*ft_get_door(t_varlist *vl, int x, int y);
+void		ft_update_doors(t_varlist *vl);
 char		ft_checkmapelement(t_varlist *vl, char element, int x, int y);
 char		ft_initplayer(t_varlist *vl, char dir, int x, int y);
 char		ft_addwalktroughdecor(t_varlist *vl, int x, int y, int number);

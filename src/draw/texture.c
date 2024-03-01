@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture.c                                          :+:    :+:            */
+/*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:54:20 by houtworm          #+#    #+#             */
-/*   Updated: 2024/02/14 19:06:44 by djonker       ########   odam.nl         */
+/*   Updated: 2024/03/01 15:30:53 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_selecttexture(t_varlist *vl)
 {
 	if (vl->map[vl->mapx][vl->mapy] == '4')
 		vl->temptxt = vl->elevtxt[0];
-	else if (vl->map[vl->mapx][vl->mapy] == 'D')
+	else if (vl->map[vl->mapx][vl->mapy] == 'D' ||
+			vl->map[vl->mapx][vl->mapy] == 'd')
 		vl->temptxt = vl->doortxt[0];
 	else if (vl->side == 0)
 	{
@@ -50,6 +51,9 @@ int	ft_gettextx(t_varlist *vl)
 		textx = 64 - textx - 1;
 	if (vl->side == 1 && vl->raydiry < 0)
 		textx = 64 - textx - 1;
+	if (vl->map[vl->mapx][vl->mapy] == 'D' ||
+		vl->map[vl->mapx][vl->mapy] == 'd')
+		textx += ft_get_door(vl, vl->mapx, vl->mapy)->closedness * 64;
 	return (textx);
 }
 

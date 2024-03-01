@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.c                                          :+:    :+:            */
+/*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:36:42 by djonker           #+#    #+#             */
-/*   Updated: 2024/02/14 17:19:56 by djonker       ########   odam.nl         */
+/*   Updated: 2024/03/01 16:26:08 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,43 +58,15 @@ int ft_prepcast(t_varlist *vl, int x)
 	return (0);
 }
 
-// if ft_checkhalf returns 0.5 or higher it means the cell was hit through the middle in other words it hit the door. 
-int	ft_checkhalf(t_varlist *vl)
-{	
-	double	p0;
-	double	p1;
-
-	if (!vl->side)
-	{
-//		p0 is the position of the rayhit on the x-axis.
-//		p1 is the position of the rayhit on the y-axis if there was no door obstructing it.
-		p0 = vl->raydiry * vl->sidedistx;
-		p1 = vl->raydiry * (vl->sidedisty + vl->deltadisty);
-	}
-	else
-	{
-//		p0 is the position of the rayhit on the y-axis.
-//		p1 is the position of the rayhit on the x-axis if there was no door obstructing it.
-		p0 = vl->raydirx * vl->sidedisty;
-		p1 = vl->raydirx * (vl->sidedistx + vl->deltadistx);
-	}
-//	returns the difference
-	return (fabs(p0 - p1));
-	/*return (p0 - p1);*/
-}
-
 void ft_raycast(t_varlist *vl, int x)
 {
-	int hit;
-	int stepx;
-	int stepy;
-	double	half;
+	int		hit;
+	int		stepx;
+	int		stepy;
 
 	hit = ft_prepcast(vl, x);
 	stepx = ft_getstepx(vl, vl->mapx);
 	stepy = ft_getstepy(vl, vl->mapy);
-	/*if (x == vl->w/2)*/
-		/*printf("dir: (%f, %f)\n", vl->dirx, vl->diry);*/
 	while (hit == 0)
 	{
 		if (vl->sidedistx < vl->sidedisty)
@@ -109,20 +81,10 @@ void ft_raycast(t_varlist *vl, int x)
 			vl->mapy += stepy;
 			vl->side = 1;
 		}
-		if (vl->map[vl->mapx][vl->mapy] == 'D')
-		{
-			half = ft_checkhalf(vl);
-			if (half > 0.5)
-			{
-				if (!vl->side)
-					vl->sidedistx += vl->deltadistx * 0.5;
-				else
-					vl->sidedisty += vl->deltadisty * 0.5;
-				hit = 1;
-			}
-		}
-		if (vl->map[vl->mapx][vl->mapy] == '1' ||
-			vl->map[vl->mapx][vl->mapy] == '4')
-			hit = 1; 
+		if (vl->map[vl->mapx][vl->mapy] == '1' || \
+			vl->map[vl->mapx][vl->mapy] == '4' || \
+			vl->map[vl->mapx][vl->mapy] == 'D' || \
+			vl->map[vl->mapx][vl->mapy] == 'd')
+			hit = 1;
 	}
 }

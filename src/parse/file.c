@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   file.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: houtworm <codam@houtworm.net>                +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/26 16:48:55 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 09:31:08 by houtworm      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   file.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 16:48:55 by houtworm          #+#    #+#             */
+/*   Updated: 2024/02/29 16:52:33 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
 			if (vl.ccolor && vl.fcolor)
 			{
 				vl.map = ft_getmap(&vl, fd);
+				vl.doors = ft_initdoors(&vl);
 				break ;
 			}
 		}

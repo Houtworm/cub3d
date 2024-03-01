@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   interact.c                                         :+:    :+:            */
+/*   interact.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:50:23 by houtworm          #+#    #+#             */
-/*   Updated: 2024/02/14 17:27:10 by djonker       ########   odam.nl         */
+/*   Updated: 2024/03/01 15:14:44 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+
+static void	ft_interact_door(t_varlist *vl, int mapx, int mapy)
+{
+	t_door	*door;
+
+	door = ft_get_door(vl, mapx, mapy);
+	if (door->status == DOOR_IDLE)
+	{
+		if (door->closedness == 1)
+			door->status = DOOR_OPENING;
+		else
+			door->status = DOOR_CLOSING;
+	}
+}
 
 void	ft_interact(t_varlist *vl)
 {
@@ -39,7 +53,7 @@ void	ft_interact(t_varlist *vl)
 	if (vl->map[mapx][mapy] == '4')
 		ft_finish(vl);
 	if (vl->map[mapx][mapy] == 'D')
-		vl->map[mapx][mapy] = 'd';
-	else if (vl->map[mapx][mapy] == 'd') // closing doors
-		vl->map[mapx][mapy] = 'D';
+		ft_interact_door(vl, mapx, mapy);
+	else if (vl->map[mapx][mapy] == 'd')
+		ft_interact_door(vl, mapx, mapy);
 }
