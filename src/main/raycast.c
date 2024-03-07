@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:36:42 by djonker           #+#    #+#             */
-/*   Updated: 2024/03/01 16:26:08 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2024/03/07 18:40:22 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void ft_raycast(t_varlist *vl, int x)
 	int		hit;
 	int		stepx;
 	int		stepy;
+	double	wallx;
+	t_door	*door;
 
 	hit = ft_prepcast(vl, x);
 	stepx = ft_getstepx(vl, vl->mapx);
@@ -81,10 +83,31 @@ void ft_raycast(t_varlist *vl, int x)
 			vl->mapy += stepy;
 			vl->side = 1;
 		}
-		if (vl->map[vl->mapx][vl->mapy] == '1' || \
-			vl->map[vl->mapx][vl->mapy] == '4' || \
-			vl->map[vl->mapx][vl->mapy] == 'D' || \
+		if (vl->map[vl->mapx][vl->mapy] == 'D' || \
 			vl->map[vl->mapx][vl->mapy] == 'd')
+		{
+			door = ft_get_door(vl, vl->mapx, vl->mapy);
+			if (!vl->side)
+			{
+				wallx = vl->posy + vl->raydiry * vl->wdist;
+				wallx -= floor(wallx);
+				if (vl->raydirx > 0)
+					wallx = 1 - wallx;
+				if (wallx >= (1 - door->closedness))
+					hit = 1;
+			}
+			else
+			{
+				wallx = vl->posx + vl->raydirx * vl->wdist;
+				wallx -= floor(wallx);
+				if (vl->raydiry < 0)
+					wallx = 1 - wallx;
+				if (wallx >= (1 - door->closedness))
+					hit = 1;
+			}
+		}
+		if (vl->map[vl->mapx][vl->mapy] == '1' || \
+			vl->map[vl->mapx][vl->mapy] == '4')
 			hit = 1;
 	}
 }
