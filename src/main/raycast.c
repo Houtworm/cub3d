@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:36:42 by djonker           #+#    #+#             */
-/*   Updated: 2024/03/07 18:46:49 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2024/03/07 19:04:16 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void ft_raycast(t_varlist *vl, int x)
 			door = ft_get_door(vl, vl->mapx, vl->mapy);
 			if (!vl->side)
 			{
-				// wallx = vl->posy + vl->raydiry * vl->wdist;
 				wallx = vl->posy + vl->raydiry * (vl->sidedistx - vl->deltadistx);
 				wallx -= floor(wallx);
 				if (vl->raydirx > 0)
@@ -99,7 +98,6 @@ void ft_raycast(t_varlist *vl, int x)
 			}
 			else
 			{
-				// wallx = vl->posx + vl->raydirx * vl->wdist;
 				wallx = vl->posx + vl->raydirx * (vl->sidedisty - vl->deltadisty);
 				wallx -= floor(wallx);
 				if (vl->raydiry < 0)

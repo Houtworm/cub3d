@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doors.c                                            :+:    :+:            */
+/*   doors.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 13:24:50 by fsarkoh           #+#    #+#             */
-/*   Updated: 2024/03/06 17:00:51 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/07 19:10:00 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,10 @@ void	ft_update_doors(t_varlist *vl)
 	{
 		door = vl->doors[i];
 		if (door->status == DOOR_CLOSING)
-			door->closedness += DOOR_SPEED;
+		{
+			if (!((int)vl->posx == door->x && (int)vl->posy == door->y))
+				door->closedness += DOOR_SPEED;
+		}
 		else if (door->status == DOOR_OPENING)
 			door->closedness -= DOOR_SPEED;
 		if (door->closedness >= 1)
