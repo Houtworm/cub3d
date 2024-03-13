@@ -6,7 +6,7 @@
 #    By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 10:46:29 by houtworm          #+#    #+#              #
-#    Updated: 2024/03/01 13:24:23 by fsarkoh          ###   ########.fr        #
+#    Updated: 2024/03/13 15:39:14 by fsarkoh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC			=src/main/main.c\
 			 src/parse/player.c\
 			 src/parse/sprite.c\
 			 src/parse/flood.c\
+			 src/parse/init_doors.c\
 			 src/parse/doors.c\
 			 src/draw/world.c\
 			 src/draw/texture.c\

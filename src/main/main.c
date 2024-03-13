@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:13:07 by houtworm          #+#    #+#             */
-/*   Updated: 2024/03/01 14:28:06 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2024/03/13 15:10:43 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	mainloop(void *param)
 	{
 		ft_newframe(vl);
 		ft_drawmap(vl);
-		ft_update_doors(vl);	
+		ft_update_doors(vl);
 		ft_enemyaction(vl);
 		ft_checkpickup(vl);
 		ft_drawsprites(vl);

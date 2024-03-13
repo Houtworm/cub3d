@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   move.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: houtworm <codam@houtworm.net>                +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/02/14 18:15:04 by djonker       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   move.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 16:50:23 by houtworm          #+#    #+#             */
+/*   Updated: 2024/03/13 15:01:23 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ void	ft_checkmove(t_varlist *vl, double movy, double movx, double movespeed)
 	}
 	newx = vl->posx + movx * movespeed * vl->run;
 	newy = vl->posy + movy * movespeed * vl->run;
-	if (vl->map[(int)newx][(int)vl->posy] == '0' || vl->map[(int)newx][(int)vl->posy] == 'd')
+	if (vl->map[(int)newx][(int)vl->posy] == '0' \
+		|| vl->map[(int)newx][(int)vl->posy] == 'd')
 		vl->posx = newx;
-	if (vl->map[(int)vl->posx][(int)newy] == '0' || vl->map[(int)vl->posx][(int)newy] == 'd')
+	if (vl->map[(int)vl->posx][(int)newy] == '0' \
+		|| vl->map[(int)vl->posx][(int)newy] == 'd')
 		vl->posy = newy;
 }
 
