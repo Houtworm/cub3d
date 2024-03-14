@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:    :+:            */
+/*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:48:55 by houtworm          #+#    #+#             */
-/*   Updated: 2024/03/14 12:53:29 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/14 17:10:47 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
 	}
 	close(fd);
 	free(line);
+	if (!vl.walltxt[0] || !vl.walltxt[1] || !vl.walltxt[2] \
+			|| !vl.walltxt[3] || !vl.ccolor || !vl.fcolor)
+			ft_errorexit("Missing parameter in .cub file", "parseconfigfile", 1);
 	return (vl);
 }
