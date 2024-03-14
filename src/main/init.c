@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   init.c                                             :+:    :+:            */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:49:12 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/14 12:58:38 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/14 15:48:47 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ t_varlist	initgame(void)
 	ft_initpickups(&vl);
 	ft_initenemies(&vl);
 	ft_initweapons(&vl);
+	mlx_set_setting(MLX_STRETCH_IMAGE, 1);
+	mlx_set_setting(MLX_FULLSCREEN, 1);
 	vl.mlx = mlx_init(vl.w, vl.h, "Cub3D", true);
 	if (!vl.mlx)
 		ft_errorexit("MLX failed to init", "initvarlist", 1);

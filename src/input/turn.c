@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   turn.c                                             :+:    :+:            */
+/*   turn.c                                             :+:      :+:    :+:   */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/02/14 19:38:57 by djonker       ########   odam.nl         */
+/*   Updated: 2024/03/14 15:52:35 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,20 @@ void	ft_turnhorizontal(double xpos, t_varlist *vl)
 	if (xpos < vl->oldmouseposx)
 	{
 		temp = vl->dirx;
-		vl->dirx = temp * cos(0.03) - vl->diry * sin(0.03);
-		vl->diry = temp * sin(0.03) + vl->diry * cos(0.03);
+		vl->dirx = temp * cos(0.02) - vl->diry * sin(0.02);
+		vl->diry = temp * sin(0.02) + vl->diry * cos(0.02);
 		temp = vl->planex;
-		vl->planex = temp * cos(0.03) - vl->planey * sin(0.03);
-		vl->planey = temp * sin(0.03) + vl->planey * cos(0.03);
+		vl->planex = temp * cos(0.02) - vl->planey * sin(0.02);
+		vl->planey = temp * sin(0.02) + vl->planey * cos(0.02);
 	}
 	if (xpos > vl->oldmouseposx)
 	{
 		temp = vl->dirx;
-		vl->dirx = temp * cos(-0.03) - vl->diry * sin(-0.03);
-		vl->diry = temp * sin(-0.03) + vl->diry * cos(-0.03);
+		vl->dirx = temp * cos(-0.02) - vl->diry * sin(-0.02);
+		vl->diry = temp * sin(-0.02) + vl->diry * cos(-0.02);
 		temp = vl->planex;
-		vl->planex = temp * cos(-0.03) - vl->planey * sin(-0.03);
-		vl->planey = temp * sin(-0.03) + vl->planey * cos(-0.03);
+		vl->planex = temp * cos(-0.02) - vl->planey * sin(-0.02);
+		vl->planey = temp * sin(-0.02) + vl->planey * cos(-0.02);
 	}
 	vl->oldmouseposx = xpos;
 }
