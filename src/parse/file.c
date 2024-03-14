@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:48:55 by houtworm          #+#    #+#             */
-/*   Updated: 2024/03/14 17:10:47 by djonker          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:24:32 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
 	while (get_next_line(fd, &line))
 	{
 		ft_checkline(&vl, line);
-		if (vl.walltxt[0] && vl.walltxt[1] && vl.walltxt[2] && vl.walltxt[3])
+		if (vl.walltxt[0] && vl.walltxt[1] && vl.walltxt[2] && vl.walltxt[3] \
+			&& vl.ccolor && vl.fcolor)
 		{
-			if (vl.ccolor && vl.fcolor)
-			{
-				vl.map = ft_getmap(&vl, fd);
-				vl.doors = ft_initdoors(&vl);
-				break ;
-			}
+			vl.map = ft_getmap(&vl, fd);
+			vl.doors = ft_initdoors(&vl);
+			break ;
 		}
 		free(line);
 	}
@@ -38,6 +36,6 @@ t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
 	free(line);
 	if (!vl.walltxt[0] || !vl.walltxt[1] || !vl.walltxt[2] \
 			|| !vl.walltxt[3] || !vl.ccolor || !vl.fcolor)
-			ft_errorexit("Missing parameter in .cub file", "parseconfigfile", 1);
+		ft_errorexit("Missing parameter in .cub file", "parseconfigfile", 1);
 	return (vl);
 }
