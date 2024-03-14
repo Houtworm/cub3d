@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   flood.c                                            :+:    :+:            */
+/*   flood.c                                            :+:      :+:    :+:   */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 10:51:00 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/14 19:01:53 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	ft_floodfill(t_varlist vl)
 		fillmap[y] = ft_strdup(vl.map[y]);
 		y++;
 	}
-	y = (int)vl.posy;
-	x = (int)vl.posx;
+	x = (int)vl.posy;
+	y = (int)vl.posx;
 	fillmap[y][x] = '1';
 	x = ft_flood(vl, fillmap, x, y);
 	ft_frearr(fillmap);
