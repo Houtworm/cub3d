@@ -1,18 +1,18 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:    :+:             #
 #                                                     +:+ +:+         +:+      #
 #    By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 10:46:29 by houtworm          #+#    #+#              #
-#    Updated: 2024/03/13 15:39:14 by fsarkoh          ###   ########.fr        #
+#    Updated: 2024/03/14 12:42:02 by houtworm      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=cub3d
 CC			=gcc
-FC			=-Wall -Werror -Wextra -Wunreachable-code -flto -Ofast -march=native -g# -fsanitize=address
+FC			=-Wall -Werror -Wextra -Wunreachable-code -flto -Ofast -march=native -g -fsanitize=address
 HEAD		=-I ./include -I $(MLX)/include
 RM			=rm -rf
 LIB			=libft/libft.a getnextline/get_next_line.a mlx/build/libmlx42.a -ldl -lglfw -pthread -lm

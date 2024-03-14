@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:48:55 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 09:14:29 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/14 12:50:57 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ int	ft_settexture(t_varlist *vl, char *line, int direction)
 	int	i;
 
 	i = 0;
-	while (line[i] != '.')
+	while (line[i] && line[i] != '.')
 		i++;
+	if (line[i] != '.' || access(&line[i], F_OK))
+		ft_errorexit("Problem parsing wall texture ", line, 1);
 	if (direction == 1)
 		vl->walltxt[0] = mlx_load_png(&line[i]);
 	if (direction == 2)
