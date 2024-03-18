@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   game.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/18 19:34:41 by djonker          ###   ########.fr       */
+/*   Updated: 2024/03/19 00:13:32 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,6 @@ void	keyhook(mlx_key_data_t kd, void *param)
 		if (kd.key == MLX_KEY_F && kd.action == MLX_PRESS)
 			ft_interact(vl);
 	}
-}
-
-void	resizehook(int x, int y, void *param)
-{
-	t_varlist	*vl;
-
-	vl = param;
-	param = vl;
-	x=x;
-	y=y;
-	/*vl->h = y;*/
-	/*vl->w = x;*/
-	/*vl->mlx->height = y;*/
-	/*vl->mlx->width = x;*/
 }
 
 void	ft_processinput(t_varlist *vl)

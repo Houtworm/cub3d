@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:    :+:            */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:13:07 by houtworm          #+#    #+#             */
-/*   Updated: 2024/03/13 15:10:43 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2024/03/19 00:14:03 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int	main(int argc, char **argv)
 	if (ft_floodfill(vl))
 		ft_errorexit("map is invalid", "floodfill", 1);
 	mlx_key_hook(vl.mlx, &keyhook, &vl);
-	mlx_resize_hook(vl.mlx, &resizehook, &vl);
 	mlx_scroll_hook(vl.mlx, &scrollhook, &vl);
 	mlx_set_cursor_mode(vl.mlx, MLX_MOUSE_DISABLED);
 	mlx_cursor_hook(vl.mlx, &cursorhook, &vl);
