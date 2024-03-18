@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/14 18:46:58 by djonker          ###   ########.fr       */
+/*   Updated: 2024/03/18 19:56:47 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_getmapx(t_varlist *vl, char **map, int y, int fd)
 		if (line[0])
 			break ;
 		free(line);
+		return (ret);
 	}
 	x = 0;
 	while (ret && x <= 1024 && line[x])

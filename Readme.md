@@ -3,11 +3,8 @@ Cub3D is a simple raycasting game using the mlx library
 
 ---
 ## Todo
-### Bonus
-- Doors
-- render thin walls or try sprites?
-- door open close animation
-- handle timers as sprite struct
+extention should be .cub and nothing else
+do extra checks on the floor and ceiling color numbers
 
 ---
 ## Features
@@ -33,6 +30,7 @@ Cub3D is a simple raycasting game using the mlx library
 - Player can Jump
 - Player can Crouch
 - Vertical Aiming
+- Animated Doors
 - FPS counter
 - Timer
 - Decoration

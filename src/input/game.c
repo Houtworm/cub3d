@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   game.c                                             :+:    :+:            */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2023/11/10 11:09:42 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/18 19:34:41 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,13 @@ void	resizehook(int x, int y, void *param)
 	t_varlist	*vl;
 
 	vl = param;
-	vl->h = y;
-	vl->w = x;
-	vl->mlx->height = y;
-	vl->mlx->width = x;
+	param = vl;
+	x=x;
+	y=y;
+	/*vl->h = y;*/
+	/*vl->w = x;*/
+	/*vl->mlx->height = y;*/
+	/*vl->mlx->width = x;*/
 }
 
 void	ft_processinput(t_varlist *vl)

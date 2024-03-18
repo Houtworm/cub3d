@@ -6,7 +6,7 @@
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:33:50 by houtworm          #+#    #+#             */
-/*   Updated: 2023/11/16 14:38:44 by joel             ###   ########.fr       */
+/*   Updated: 2024/03/18 20:00:27 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	ft_checkforbasics(t_varlist *vl, char element, int x, int y)
 		return ('0');
 	else if (element == '1')
 		return ('1');
-	else if (ft_strchr("NESW", element))
+	else if (ft_strchr("NESW", element) && vl->posx == 0)
 		return (ft_initplayer(vl, element, y, x));
 	else if (element == 'D')
 		return ('D');
