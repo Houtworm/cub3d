@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture.c                                          :+:    :+:            */
+/*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:54:20 by houtworm          #+#    #+#             */
-/*   Updated: 2024/03/19 20:03:41 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/01 15:30:53 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,8 @@ int	ft_gettextx(t_varlist *vl)
 	if (vl->side == 1 && vl->raydiry < 0)
 		textx = 64 - textx - 1;
 	if (vl->map[vl->mapx][vl->mapy] == 'D' ||
-			vl->map[vl->mapx][vl->mapy] == 'd')
-	{
-		textx += ft_get_door(vl, vl->mapx, vl->mapy)->closedness * 16;
-		printf("%d, \n", textx);
-	}
+		vl->map[vl->mapx][vl->mapy] == 'd')
+		textx += ft_get_door(vl, vl->mapx, vl->mapy)->closedness * 64;
 	return (textx);
 }
 
