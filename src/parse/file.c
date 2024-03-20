@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   file.c                                             :+:    :+:            */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:48:55 by houtworm          #+#    #+#             */
-/*   Updated: 2024/03/14 18:57:26 by djonker          ###   ########.fr       */
+/*   Updated: 2024/03/20 04:08:35 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,27 @@ void	ft_checkmapexists(t_varlist vl)
 		ft_errorexit("map is missing ", "checkmapexists", 1);
 }
 
+int	ft_checkfilename(char *filename)
+{
+	int	i;
+
+	i = ft_strlen(filename);
+	if (i < 5 || \
+			filename[i - 1] != 'b' || \
+			filename[i - 2] != 'u' || \
+			filename[i - 3] != 'c' || \
+			filename[i - 4] != '.')
+		return (1);
+	return (0);
+}
+
 t_varlist	ft_parseconfigfile(t_varlist vl, char *filename)
 {
 	int		fd;
 	char	*line;
 
+	if (ft_checkfilename(filename))
+		ft_errorexit("Bad filename", " ft_parseconfigfile", 1);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		ft_errorexit("file does not exist ", "parseconfigfile", 1);
