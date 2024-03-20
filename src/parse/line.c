@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   line.c                                             :+:      :+:    :+:   */
+/*   line.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:48:55 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/14 17:19:23 by djonker          ###   ########.fr       */
+/*   Updated: 2024/03/20 03:35:47 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,44 +30,45 @@ int	ft_settexture(t_varlist *vl, char *line, int direction)
 	return (0);
 }
 
-int	ft_setcolor(t_varlist *vl, char *line, int dest)
+void	ft_setcolor(t_varlist *vl, char *line, int dest)
 {
 	int	i;
 	int	r;
 	int	g;
 	int	b;
 
-	i = 0;
-	while (line[i] < '0' || line[i] > '9')
+	i = 2;
+	while (line[i] && line[i] != '-' && (line[i] < '0' || line[i] > '9'))
 		i++;
 	r = ft_atoi(&line[i]);
-	while (line[i] >= '0' && line[i] <= '9')
-		i++;
-	while (line[i] < '0' || line[i] > '9')
+	i = i + ft_intlen(r);
+	while (line[i] && line[i] != '-' && (line[i] < '0' || line[i] > '9'))
 		i++;
 	g = ft_atoi(&line[i]);
-	while (line[i] >= '0' && line[i] <= '9')
-		i++;
-	while (line[i] < '0' || line[i] > '9')
+	i = i + ft_intlen(r);
+	while (line[i] && line[i] != '-' && (line[i] < '0' || line[i] > '9'))
 		i++;
 	b = ft_atoi(&line[i]);
+	if (!line[i])
+		ft_errorexit("RGB value should be 3 numbers", " ft_setcolor", 1);
+	if (r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0)
+		ft_errorexit("RGB Value should be 0 - 255", " ft_setcolor", 1);
 	if (dest == 1)
 		vl->ccolor = (r << 24 | g << 16 | b << 8 | 255);
 	if (dest == 2)
 		vl->fcolor = (r << 24 | g << 16 | b << 8 | 255);
-	return (0);
 }
 
 char	*ft_checklinecfn(t_varlist *vl, char *line)
 {
-	if (line[0] == 'C' && line[1] == ' ')
+	if (line[0] == 'C' && (line[1] == ' ' || line[1] == '\t'))
 	{
 		if (!vl->ccolor)
 			ft_setcolor(vl, line, 1);
 		else
 			return (" ceiling color");
 	}
-	else if (line[0] == 'F' && line[1] == ' ')
+	else if (line[0] == 'F' && (line[1] == ' ' || line[1] == '\t'))
 	{
 		if (!vl->fcolor)
 			ft_setcolor(vl, line, 2);

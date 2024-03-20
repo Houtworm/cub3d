@@ -1,7 +1,7 @@
 *.pdf
 *.o
 *.a
-cub3d
+cub3D
 LICENSE
 mlx/build
 obj

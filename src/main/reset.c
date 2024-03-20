@@ -6,7 +6,7 @@
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:49:12 by houtworm          #+#    #+#             */
-/*   Updated: 2024/03/19 00:16:32 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/20 02:16:16 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_resetgame(t_varlist *vl)
 	vl->sprite = ft_calloc(4096, 8);
 	vl->spritecount = 0;
 	vl->distance = ft_calloc(4096, 8);
+	vl->posx = 0;
 	vl->ccolor = 0;
 	vl->fcolor = 0;
 	vl->minimap = 0;

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map.c                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 17:33:50 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/18 19:56:47 by djonker          ###   ########.fr       */
+/*   Updated: 2024/03/20 02:27:51 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int	ft_getmapx(t_varlist *vl, char **map, int y, int fd)
+int	ft_getmapx(t_varlist *vl, char **map, int y, int x)
 {
 	int		ret;
-	int		x;
 	char	*line;
 
 	ret = 1;
 	while (ret > 0)
 	{
-		ret = get_next_line(fd, &line);
+		ret = get_next_line(x, &line);
 		if (line[0])
 			break ;
 		free(line);
