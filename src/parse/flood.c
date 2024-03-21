@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/20 04:43:06 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/03/20 15:34:19 by houtworm      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_floodvertical(t_varlist vl, char **fillmap, int x, int y)
 
 int	ft_floodhorizontal(t_varlist vl, char **fillmap, int x, int y)
 {
-	if (y == 0)
+	if (y == 1)
 		return (1);
 	if (fillmap[y - 1][x] != '1')
 	{
