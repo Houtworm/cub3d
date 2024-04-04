@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   flood.c                                            :+:    :+:            */
+/*   flood.c                                            :+:      :+:    :+:   */
 /*                                                     +:+                    */
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 14:13:07 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/20 15:34:19 by houtworm      ########   odam.nl         */
+/*   Updated: 2024/04/04 13:16:54 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_floodhorizontal(t_varlist vl, char **fillmap, int x, int y)
 			return (1);
 	}
 	if (y >= vl.mapsizey)
+		return (1);
+	if (!fillmap[y + 1][0])
 		return (1);
 	if (fillmap[y + 1][x] != '1')
 	{
