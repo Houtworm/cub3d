@@ -6,13 +6,13 @@
 #    By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 10:46:29 by houtworm          #+#    #+#              #
-#    Updated: 2024/04/04 13:19:38 by djonker          ###   ########.fr        #
+#    Updated: 2024/04/12 12:56:36 by djonker          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=cub3D
 CC			=gcc
-FC			=-Wall -Werror -Wextra -Wunreachable-code -flto -Ofast -march=native -g #-fsanitize=address
+FC			=-Wall -Werror -Wextra -Wunreachable-code -flto -Ofast -march=native -g -fsanitize=address
 HEAD		=-I ./include -I $(MLX)/include
 RM			=rm -rf
 LIB			=libft/libft.a getnextline/get_next_line.a mlx/build/libmlx42.a -ldl -lglfw -pthread -lm
@@ -51,7 +51,7 @@ SRC			=src/main/main.c\
 			 src/input/guns.c
 OBJ			=$(SRC:src/%.c=obj/%.o)
 
-all:		libft getnextline mlx/build/mlx42.a $(NAME)
+all:		libft getnextline mlx/build/libmlx42.a $(NAME)
 
 clean:
 				@$(RM) obj
@@ -71,7 +71,7 @@ re:			fclean all
 $(OBJ):		$(SRC) Makefile cub3d.h
 				@mkdir -p $(dir $@)
 				@printf "\e[1;34mBuilding $@\n\e[0;00m"
-				@$(CC) $(CFLAGS) -c $(@:obj/%.o=src/%.c) -o $@
+				@$(CC) $(FC) -c $(@:obj/%.o=src/%.c) -o $@
 
 $(NAME):	$(OBJ)
 				@printf "\e[1;36mCompiling $@\e[0;00m\n"
@@ -84,7 +84,7 @@ libft:
 getnextline:
 				@$(MAKE) -C getnextline all
 
-mlx/build/mlx42.a:
+mlx/build/libmlx42.a:
 				@cmake -S mlx -B mlx/build
 				@$(MAKE) -C mlx/build -j4
 

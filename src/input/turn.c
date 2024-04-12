@@ -6,7 +6,7 @@
 /*   By: houtworm <codam@houtworm.net>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 16:50:23 by houtworm      #+#    #+#                 */
-/*   Updated: 2024/03/18 14:49:52 by djonker          ###   ########.fr       */
+/*   Updated: 2024/04/12 12:51:22 by djonker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	ft_processturn(t_varlist *vl, double rotspeed)
 void	ft_turnvertical(double ypos, t_varlist *vl)
 {
 	if (ypos < vl->oldmouseposy)
-		if (vl->vaim < 300)
+		if (vl->vaim < 250)
 			vl->vaim = vl->vaim + 3;
 	if (ypos > vl->oldmouseposy)
-		if (vl->vaim > -300)
+		if (vl->vaim > -250)
 			vl->vaim = vl->vaim - 3;
 	vl->oldmouseposy = ypos;
 }

@@ -1,0 +1,25 @@
+C 50,50,50
+F 100,100,100
+
+NO ./assets/wall/bluestone.png
+EA ./assets/wall/colorstone.png
+SO ./assets/wall/redbrick.png
+WE ./assets/wall/wood.png
+
+111111111111111111111111111111111111111
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbNbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+1bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb1
+111111111111111111111111111111111111111
